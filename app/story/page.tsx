@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { BeginQuestButton } from '@/components/begin-quest-button';
 
 export default function StoryPage() {
   return (
@@ -35,26 +36,18 @@ export default function StoryPage() {
             className="pointer-events-none absolute -left-px top-8 bottom-8 w-1 rounded-full bg-gradient-to-b from-[#c084fc] via-[#f7c948] to-[#ff6b35]"
           />
           <p className="text-base leading-[1.9] text-[#d4c4e8] sm:text-lg">
-            You open your pantry and, to your amazement, a swirling portal bursts
-            open, pulling you gently forward. Before you realize it, you&apos;re
-            swept inside. You arrived in the magical land of Snacktopia, where
-            every path is lined with enchanted treats and every choice shapes
-            your destiny. Guided by the Grand Confectioner, you must journey
-            across whimsical lands, and overcome delicious challenges to
-            discover your true Snack Spirit. Each choice is a step in your
-            adventure—choose boldly, for the flavor of your soul awaits!
+            You open your pantry and, to your amazement, a swirling portal
+            bursts open, pulling you gently forward. Before you realize it,
+            you&apos;re swept inside. You arrived in the magical land of
+            Snacktopia, where every path is lined with enchanted treats and
+            every choice shapes your destiny. Guided by the Grand Confectioner,
+            you must journey across whimsical lands, and overcome delicious
+            challenges to discover your true Snack Spirit. Each choice is a step
+            in your adventure—choose boldly, for the flavor of your soul awaits!
           </p>
         </div>
 
-        {/* CTA placeholder — destination TBD when questions are added */}
-        <button
-          type="button"
-          disabled
-          aria-disabled="true"
-          className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-[#c084fc]/30 bg-[#7c3aed]/20 px-8 py-4 text-lg font-semibold text-[#a78bfa]/60"
-        >
-          Begin Your Quest
-        </button>
+        <BeginQuestButton />
         <p className="mt-4 text-sm text-[#6b5b7b]">
           Your first challenge awaits just ahead…
         </p>
