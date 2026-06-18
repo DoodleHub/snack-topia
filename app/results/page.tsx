@@ -147,16 +147,16 @@ export default function ResultsPage() {
           <p>{spirit.why}</p>
         </InfoCard>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/story"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#c084fc] px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#7c3aed]/25 transition-all hover:scale-105 hover:from-[#c084fc] hover:to-[#7c3aed]"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#c084fc] px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#7c3aed]/25 transition-all hover:scale-105 hover:from-[#c084fc] hover:to-[#7c3aed] sm:flex-1"
           >
             Take the Quest Again
           </Link>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-[#c084fc]/30 px-6 py-3.5 text-sm font-medium text-[#a78bfa] transition-colors hover:border-[#c084fc]/50 hover:text-[#c4b5fd]"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#c084fc]/30 px-8 py-3.5 text-sm font-semibold text-[#a78bfa] transition-colors hover:border-[#c084fc]/50 hover:text-[#c4b5fd] sm:flex-1"
           >
             ← Return Home
           </Link>

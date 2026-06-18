@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { QuizQuestionItem } from "@/lib/constants";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -8,9 +9,10 @@ import { useQuiz } from "@/lib/quiz-context";
 type QuizQuestionProps = {
   question: QuizQuestionItem;
   totalQuestions: number;
+  imageUrl?: string;
 };
 
-export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
+export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestionProps) {
   const router = useRouter();
   const { recordAnswer } = useQuiz();
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
@@ -58,6 +60,18 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
             />
           </div>
         </div>
+
+        {imageUrl && (
+          <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-2xl">
+            <Image
+              src={imageUrl}
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
 
         <div className="mb-8 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">
           <p className="mb-2 text-sm font-medium uppercase tracking-widest text-[#f7c948]/80">

@@ -15,11 +15,15 @@ export default async function QuizPage({ params }: QuizPageProps) {
     notFound();
   }
 
+  const imageId = String(question.id).padStart(2, "0");
+  const imageUrl = `/images/questions/snacktopia_${imageId}.png`;
+
   return (
     <QuizQuestion
       key={question.id}
       question={question}
       totalQuestions={QUIZ_QUESTIONS.questions.length}
+      imageUrl={imageUrl}
     />
   );
 }
