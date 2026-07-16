@@ -14,22 +14,32 @@ type QuizQuestionProps = {
 
 export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestionProps) {
   const router = useRouter();
-  const { recordAnswer } = useQuiz();
-  const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+  const { recordAnswer, answers } = useQuiz();
+  const savedAnswer = answers[question.id];
+  const [selectedOptionId, setSelectedOptionId] = useState<string | null>(
+    savedAnswer?.optionId ?? null,
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const progress = (question.id / totalQuestions) * 100;
 
-  function handleSubmit() {
-    if (!selectedOptionId || isSubmitting) return;
+  function handleBack() {
+    if (question.id > 1) {
+      router.push(`/quiz/${question.id - 1}`);
+    }
+  }
+
+  function handleSelectOption(optionId: string) {
+    if (isSubmitting) return;
 
     const selectedOption = question.options.find(
-      (option) => option.id === selectedOptionId,
+      (option) => option.id === optionId,
     );
     if (!selectedOption) return;
 
+    setSelectedOptionId(optionId);
     setIsSubmitting(true);
-    recordAnswer(question.id, selectedOptionId, selectedOption.weights);
+    recordAnswer(question.id, optionId, selectedOption.weights);
 
     if (question.id < totalQuestions) {
       router.push(`/quiz/${question.id + 1}`);
@@ -46,6 +56,17 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
       />
 
       <main className="relative z-10 flex w-full max-w-2xl flex-col">
+        {question.id > 1 && (
+          <button
+            type="button"
+            onClick={handleBack}
+            disabled={isSubmitting}
+            className="mb-6 self-start text-sm text-[#a78bfa] transition-colors hover:text-[#c4b5fd] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            ← Back
+          </button>
+        )}
+
         <div className="mb-8">
           <div className="mb-3 flex items-center justify-between text-sm">
             <span className="font-medium tracking-wide text-[#a78bfa]">
@@ -82,7 +103,7 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
           </h1>
         </div>
 
-        <fieldset className="mb-10 flex flex-col gap-3">
+        <fieldset className="flex flex-col gap-3">
           <legend className="sr-only">{question.question}</legend>
           {question.options.map((option) => {
             const isSelected = selectedOptionId === option.id;
@@ -94,14 +115,15 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
                   isSelected
                     ? "border-[#f7c948]/60 bg-[#f7c948]/10 shadow-lg shadow-[#f7c948]/10"
                     : "border-[#c084fc]/20 bg-[#1a0a2e]/50 hover:border-[#c084fc]/40 hover:bg-[#1a0a2e]/80"
-                }`}
+                } ${isSubmitting ? "pointer-events-none" : ""}`}
               >
                 <input
                   type="radio"
                   name={`question-${question.id}`}
                   value={option.id}
                   checked={isSelected}
-                  onChange={() => setSelectedOptionId(option.id)}
+                  onChange={() => handleSelectOption(option.id)}
+                  disabled={isSubmitting}
                   className="sr-only"
                 />
                 <span
@@ -125,16 +147,6 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
             );
           })}
         </fieldset>
-
-        <button
-          type="button"
-          onClick={handleSubmit}
-          disabled={!selectedOptionId || isSubmitting}
-          className="inline-flex items-center justify-center gap-2 self-center rounded-full bg-gradient-to-r from-[#ff6b35] to-[#f7c948] px-8 py-4 text-lg font-semibold text-[#1a0a2e] shadow-lg shadow-[#ff6b35]/25 transition-all hover:scale-105 hover:from-[#f7c948] hover:to-[#ff6b35] hover:shadow-xl hover:shadow-[#ff6b35]/35 active:scale-100 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
-        >
-          {question.id < totalQuestions ? "Continue" : "Reveal My Spirit"}
-          <span aria-hidden>→</span>
-        </button>
       </main>
     </div>
   );

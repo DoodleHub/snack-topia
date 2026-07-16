@@ -9,11 +9,18 @@ import {
   type ReactNode,
 } from "react";
 
-export type CategoryWeights = Record<string, number>;
+import type { SpiritId, SpiritWeights } from "@/lib/constants";
+
+export type CategoryWeights = SpiritWeights;
+
+export type QuizAnswer = {
+  optionId: string;
+  weights: CategoryWeights;
+};
 
 type QuizContextValue = {
   weights: CategoryWeights;
-  answers: Record<number, string>;
+  answers: Record<number, QuizAnswer>;
   recordAnswer: (
     questionId: number,
     optionId: string,
@@ -24,31 +31,54 @@ type QuizContextValue = {
 
 const QuizContext = createContext<QuizContextValue | null>(null);
 
-function mergeWeights(
-  current: CategoryWeights,
-  added: CategoryWeights,
+function computeWeightsFromAnswers(
+  answers: Record<number, QuizAnswer>,
 ): CategoryWeights {
-  const next = { ...current };
-  for (const [category, value] of Object.entries(added)) {
-    next[category] = (next[category] ?? 0) + value;
+  const weights: CategoryWeights = {};
+
+  for (const answer of Object.values(answers)) {
+    for (const [category, value] of Object.entries(answer.weights)) {
+      const spiritId = category as SpiritId;
+      weights[spiritId] = (weights[spiritId] ?? 0) + value;
+    }
   }
-  return next;
+
+  return weights;
 }
 
 export function QuizProvider({ children }: { children: ReactNode }) {
-  const [weights, setWeights] = useState<CategoryWeights>({});
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
+
+  const weights = useMemo(
+    () => computeWeightsFromAnswers(answers),
+    [answers],
+  );
 
   const recordAnswer = useCallback(
     (questionId: number, optionId: string, optionWeights: CategoryWeights) => {
-      setAnswers((prev) => ({ ...prev, [questionId]: optionId }));
-      setWeights((prev) => mergeWeights(prev, optionWeights));
+      setAnswers((prev) => {
+        const answerChanged = prev[questionId]?.optionId !== optionId;
+        const next: Record<number, QuizAnswer> = {
+          ...prev,
+          [questionId]: { optionId, weights: optionWeights },
+        };
+
+        if (answerChanged) {
+          for (const id of Object.keys(next)) {
+            const answeredQuestionId = Number(id);
+            if (answeredQuestionId > questionId) {
+              delete next[answeredQuestionId];
+            }
+          }
+        }
+
+        return next;
+      });
     },
     [],
   );
 
   const resetQuiz = useCallback(() => {
-    setWeights({});
     setAnswers({});
   }, []);
 

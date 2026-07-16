@@ -1,32 +1,22 @@
 import {
   SNACK_SPIRITS,
-  SPIRIT_ALIASES,
   type SnackSpirit,
+  type SpiritId,
+  type SpiritWeights,
 } from "@/lib/constants";
-import type { CategoryWeights } from "@/lib/quiz-context";
 
-export function getNormalizedWeights(
-  weights: CategoryWeights,
-): CategoryWeights {
-  const normalized: CategoryWeights = {};
-
-  for (const [key, value] of Object.entries(weights)) {
-    const canonical = SPIRIT_ALIASES[key] ?? key;
-    normalized[canonical] = (normalized[canonical] ?? 0) + value;
-  }
-
-  return normalized;
+export function getSpiritName(id: SpiritId): string {
+  return SNACK_SPIRITS[id].name;
 }
 
 export function getTopSnackSpirit(
-  weights: CategoryWeights,
-): SnackSpirit | null {
-  const normalized = getNormalizedWeights(weights);
-  const ranked = Object.entries(normalized).sort(([, a], [, b]) => b - a);
+  weights: SpiritWeights,
+): (SnackSpirit & { id: SpiritId }) | null {
+  const ranked = Object.entries(weights).sort(([, a], [, b]) => b - a);
 
-  for (const [name] of ranked) {
-    const spirit = SNACK_SPIRITS[name];
-    if (spirit) return spirit;
+  for (const [spiritId] of ranked) {
+    const spirit = SNACK_SPIRITS[spiritId as SpiritId];
+    if (spirit) return { id: spiritId as SpiritId, ...spirit };
   }
 
   return null;
