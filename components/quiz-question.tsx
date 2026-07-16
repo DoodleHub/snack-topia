@@ -29,6 +29,10 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
     }
   }
 
+  function handleHome() {
+    router.push("/story");
+  }
+
   function handleSelectOption(optionId: string) {
     if (isSubmitting) return;
 
@@ -57,14 +61,24 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
 
       <main className="relative z-10 flex w-full max-w-2xl flex-col">
         {question.id > 1 && (
-          <button
-            type="button"
-            onClick={handleBack}
-            disabled={isSubmitting}
-            className="mb-6 self-start text-sm text-[#a78bfa] transition-colors hover:text-[#c4b5fd] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            ← Back
-          </button>
+          <div className="mb-6 flex w-full items-center">
+            <button
+              type="button"
+              onClick={handleBack}
+              disabled={isSubmitting}
+              className="cursor-pointer text-sm text-[#a78bfa] transition-colors hover:text-[#c4b5fd] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              ← Back
+            </button>
+            <button
+              type="button"
+              onClick={handleHome}
+              disabled={isSubmitting}
+              className="ml-auto cursor-pointer text-sm text-[#a78bfa] transition-colors hover:text-[#c4b5fd] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Start Over
+            </button>
+          </div>
         )}
 
         <div className="mb-8">

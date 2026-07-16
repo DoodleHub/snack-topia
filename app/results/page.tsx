@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useMemo } from "react";
-import { useQuiz } from "@/lib/quiz-context";
-import { getSpiritName, getTopSnackSpirit } from "@/lib/quiz-utils";
+import Link from 'next/link';
+import { useMemo } from 'react';
+import { useQuiz } from '@/lib/quiz-context';
+import { getSpiritName, getTopSnackSpirit } from '@/lib/quiz-utils';
 
 function TraitPill({ label }: { label: string }) {
   return (
@@ -76,7 +76,7 @@ export default function ResultsPage() {
     return null;
   }
 
-  const traits = spirit.traits.split(",").map((trait) => trait.trim());
+  const traits = spirit.traits.split(',').map((trait) => trait.trim());
 
   return (
     <div className="relative flex min-h-full flex-1 flex-col overflow-hidden bg-[#0f0618] px-6 py-12">
@@ -158,7 +158,7 @@ export default function ResultsPage() {
             href="/"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-[#c084fc]/30 px-8 py-3.5 text-sm font-semibold text-[#a78bfa] transition-colors hover:border-[#c084fc]/50 hover:text-[#c4b5fd] sm:flex-1"
           >
-            Start Over
+            ← Return Home
           </Link>
         </div>
       </main>
