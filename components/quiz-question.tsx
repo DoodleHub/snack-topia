@@ -110,7 +110,7 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
 
         <div className="mb-8 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">
           <p className="mb-2 text-sm font-medium uppercase tracking-widest text-[#f7c948]/80">
-            Your path unfolds
+            {question.title}
           </p>
           <h1 className="text-xl font-semibold leading-snug text-[#e9d5ff] sm:text-2xl">
             {question.question}
