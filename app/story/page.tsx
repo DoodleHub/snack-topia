@@ -26,31 +26,21 @@ export default function StoryPage() {
           <span aria-hidden>🌀</span>
         </div>
 
-        <h1 className="mb-8 text-center text-2xl font-semibold tracking-wide text-[#e9d5ff] sm:text-3xl">
-          The Portal Opens…
-        </h1>
-
         <div className="relative mb-12 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">
           <div
             aria-hidden
             className="pointer-events-none absolute -left-px top-8 bottom-8 w-1 rounded-full bg-gradient-to-b from-[#c084fc] via-[#f7c948] to-[#ff6b35]"
           />
           <p className="text-base leading-[1.9] text-[#d4c4e8] sm:text-lg">
-            You open your pantry and, to your amazement, a swirling portal
-            bursts open, pulling you gently forward. Before you realize it,
-            you&apos;re swept inside. You arrived in the magical land of
-            Snacktopia, where every path is lined with enchanted treats and
-            every choice shapes your destiny. Guided by the Grand Confectioner,
-            you must journey across whimsical lands, and overcome delicious
-            challenges to discover your true Snack Spirit. Each choice is a step
-            in your adventure—choose boldly, for the flavor of your soul awaits!
-          </p>
+                Late one evening, you open your pantry in search of a snack and discover a tiny glowing lantern hidden between the shelves. 
+                  The moment you touch it, a portal opens and sweeps you into <b>Snacktopia</b>, a magical world. 
+                  Tonight, your journey begins at the <b>Moonlight Night Market</b>. 
+            Waiting at the entrance is <b>Grand Guardian Nibble</b>, the ruler and protector of Snacktopia. He explains that somewhere in the market lives a Snack Spirit whose personality reflects your own.
+            Explore the stalls, face whimsical challenges, and follow your instincts. <b>Your Snack Spirit is waiting.</b>
+                     </p>
         </div>
 
         <BeginQuestButton />
-        <p className="mt-4 text-sm text-[#6b5b7b]">
-          Your first challenge awaits just ahead…
-        </p>
       </main>
     </div>
   );

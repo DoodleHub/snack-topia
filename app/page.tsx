@@ -35,23 +35,27 @@ export default function Home() {
       <main className="relative z-10 flex w-full max-w-2xl flex-col items-center text-center">
         <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#f7c948]/30 bg-[#f7c948]/10 px-4 py-1.5 text-sm font-medium tracking-wide text-[#f7c948]">
           <span aria-hidden>✨</span>
-          Welcome to Snacktopia
+          Snacktopia: Night Market Adventure
         </p>
 
         <h1 className="mb-6 bg-gradient-to-br from-[#fff5e6] via-[#f7c948] to-[#ff6b35] bg-clip-text text-5xl font-bold leading-tight tracking-tight text-transparent sm:text-6xl md:text-7xl">
-          Find Your Snack Spirit!
+        Which Night Market Snack Are You? 
+        </h1>
+
+        <h1 className="mb-6 bg-gradient-to-br from-[#fff5e6] via-[#f7c948] to-[#ff6b35] bg-clip-text text-lg font-bold leading-tight tracking-tight text-transparent sm:text-2xl md:text-3xl">
+        Explore the market. Find your Snack Spirit.
         </h1>
 
         <p className="mb-12 max-w-lg text-lg leading-relaxed text-[#d4c4e8] sm:text-xl">
           Set out on a delightful journey to uncover the snack that suits you
-          best!
+          best - night market edition!
         </p>
 
         <Link
           href="/story"
           className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff6b35] to-[#f7c948] px-8 py-4 text-lg font-semibold text-[#1a0a2e] shadow-lg shadow-[#ff6b35]/25 transition-all hover:scale-105 hover:from-[#f7c948] hover:to-[#ff6b35] hover:shadow-xl hover:shadow-[#ff6b35]/35 active:scale-100"
         >
-          Begin the Adventure
+          Begin Your Adventure
           <span
             aria-hidden
             className="transition-transform group-hover:translate-x-1"
