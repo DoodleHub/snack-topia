@@ -145,6 +145,9 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
                       value={option.id}
                       checked={isSelected}
                       onChange={() => handleSelectOption(option.id)}
+                      onClick={() => {
+                        if (isSelected) handleSelectOption(option.id);
+                      }}
                       disabled={isSubmitting}
                       className="sr-only"
                     />
