@@ -149,16 +149,6 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
                       className="sr-only"
                     />
                     <span
-                      aria-hidden
-                      className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold transition-colors ${
-                        isSelected
-                          ? "border-[#f7c948] bg-[#f7c948] text-[#1a0a2e]"
-                          : "border-[#c084fc]/40 text-[#a78bfa] group-hover:border-[#f7c948]/70"
-                      }`}
-                    >
-                      {option.id.toUpperCase()}
-                    </span>
-                    <span
                       className={`text-base leading-relaxed ${
                         isSelected ? "text-[#fff5e6]" : "text-[#d4c4e8]"
                       }`}
