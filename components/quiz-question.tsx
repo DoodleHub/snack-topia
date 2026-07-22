@@ -57,29 +57,21 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
   }
 
   return (
-    <div className="relative flex min-h-full flex-1 flex-col items-center overflow-hidden bg-[#0f0618] px-6 py-10 sm:py-14">
-      <Image
-        src={
-          question.id === 5
-            ? "/images/questions/snacktopia_05.png"
-            : "/images/questions/quiz-background.PNG"
-        }
-        alt=""
-        fill
-        priority
-        className="object-cover brightness-[0.72] saturate-[1.05]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/30"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_45%,_rgba(0,0,0,0.4)_100%)]"
-      />
+    <div className="scrollbar-hide relative flex h-dvh flex-col items-center overflow-y-auto bg-[#0f0618] px-6 pb-10 pt-4 sm:pb-14 sm:pt-6">
+      <div aria-hidden className="fixed inset-0 overflow-hidden">
+        <Image
+          src="/images/questions/quiz-background.PNG"
+          alt=""
+          fill
+          priority
+          className="object-cover brightness-[0.88] saturate-[1.05]"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/30" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_45%,_rgba(0,0,0,0.4)_100%)]" />
+      </div>
 
       <main className="relative z-10 flex w-full max-w-4xl flex-1 flex-col">
-        <div className="mb-8 flex w-full flex-wrap items-center justify-between gap-4 sm:mb-10">
+        <div className="mb-6 flex w-full flex-wrap items-center justify-between gap-4 sm:mb-8">
           <Link href="/" className="group flex w-fit items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] shadow-[0_0_24px_6px_rgba(247,201,72,0.35)] transition-transform group-hover:scale-105 sm:h-11 sm:w-11">
               <span className="text-lg text-[#3a1b52]">✦</span>

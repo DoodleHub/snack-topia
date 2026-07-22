@@ -4,31 +4,21 @@ import { BeginQuestButton } from '@/components/begin-quest-button';
 
 export default function StoryPage() {
   return (
-    <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#0f0618] px-6 py-16">
-      <Image
-        src="/images/questions/quiz-background.PNG"
-        alt=""
-        fill
-        priority
-        className="object-cover brightness-[0.72] saturate-[1.05]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/30"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.4)_100%)]"
-      />
-      {/* Portal glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#7c3aed25_0%,_transparent_70%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c084fc]/20 bg-[radial-gradient(circle,_#7c3aed15_0%,_transparent_70%)]"
-      />
+    <div className="relative flex min-h-full flex-1 flex-col items-center justify-center bg-[#0f0618] px-6 py-16">
+      <div aria-hidden className="fixed inset-0 overflow-hidden">
+        <Image
+          src="/images/questions/quiz-background.PNG"
+          alt=""
+          fill
+          priority
+          className="object-cover brightness-[0.88] saturate-[1.05]"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/30" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.4)_100%)]" />
+        {/* Portal glow */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#7c3aed25_0%,_transparent_70%)]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c084fc]/20 bg-[radial-gradient(circle,_#7c3aed15_0%,_transparent_70%)]" />
+      </div>
 
       <main className="relative z-10 flex w-full max-w-2xl flex-col items-center">
         <Link
