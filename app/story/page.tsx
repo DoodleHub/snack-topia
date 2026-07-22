@@ -10,7 +10,15 @@ export default function StoryPage() {
         alt=""
         fill
         priority
-        className="object-cover"
+        className="object-cover brightness-[0.72] saturate-[1.05]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/30"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.4)_100%)]"
       />
       {/* Portal glow */}
       <div
@@ -25,20 +33,11 @@ export default function StoryPage() {
       <main className="relative z-10 flex w-full max-w-2xl flex-col items-center">
         <Link
           href="/"
-          className="mb-10 self-start text-sm text-[#a78bfa] transition-colors hover:text-[#c4b5fd]"
+          className="mb-10 flex cursor-pointer items-center gap-1.5 self-start rounded-full border border-white/15 bg-[#1a0a2e]/60 px-4 py-2 text-sm font-bold text-[#fdf6ec] backdrop-blur-sm transition-colors hover:border-white/25 hover:text-[#c4b5fd]"
         >
-          ← Back
+          <span aria-hidden>←</span>
+          Back
         </Link>
-
-        <div className="relative mb-10 h-40 w-40 overflow-hidden rounded-full border border-[#c084fc]/40 shadow-lg shadow-[#7c3aed]/20 sm:h-48 sm:w-48">
-          <Image
-            src="/images/intro/story.png"
-            alt="A glowing portal opening into Snacktopia"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
 
         <div className="relative mb-12 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">
           <div

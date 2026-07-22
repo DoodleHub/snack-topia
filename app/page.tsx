@@ -1,11 +1,25 @@
 import Link from 'next/link';
 import { Playfair_Display } from 'next/font/google';
 import { HOME_PAGE_CONTENT } from '@/lib/constants';
+import type { CSSProperties } from 'react';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   weight: ['700', '900'],
 });
+
+function CherryBlossom() {
+  return (
+    <svg viewBox="0 0 20 20" className="h-full w-full">
+      <circle cx="10" cy="6" r="4.2" fill="#f9a8d4" fillOpacity={0.9} />
+      <circle cx="13.8" cy="8.76" r="4.2" fill="#f9a8d4" fillOpacity={0.9} />
+      <circle cx="12.35" cy="13.24" r="4.2" fill="#f9a8d4" fillOpacity={0.9} />
+      <circle cx="7.65" cy="13.24" r="4.2" fill="#f9a8d4" fillOpacity={0.9} />
+      <circle cx="6.2" cy="8.76" r="4.2" fill="#f9a8d4" fillOpacity={0.9} />
+      <circle cx="10" cy="10" r="2" fill="#fde68a" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
@@ -37,6 +51,48 @@ export default function Home() {
         <span className="absolute left-[20%] bottom-[12%] text-xs text-[#c084fc]/30">
           ✦
         </span>
+      </div>
+
+      {/* Falling cherry blossom petals */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        {[
+          { left: '8%', size: 14, fallDuration: '14s', fallDelay: '-3s', drift: '14vw', spinDuration: '6s', spinDelay: '-1s' },
+          { left: '24%', size: 11, fallDuration: '12s', fallDelay: '-10s', drift: '10vw', spinDuration: '5s', spinDelay: '-3s' },
+          { left: '46%', size: 13, fallDuration: '16s', fallDelay: '-2s', drift: '17vw', spinDuration: '7s', spinDelay: '-4s' },
+          { left: '64%', size: 10, fallDuration: '13s', fallDelay: '-12s', drift: '9vw', spinDuration: '5.5s', spinDelay: '-2s' },
+          { left: '81%', size: 14, fallDuration: '15s', fallDelay: '-6s', drift: '13vw', spinDuration: '6.5s', spinDelay: '-5s' },
+          { left: '93%', size: 11, fallDuration: '11s', fallDelay: '-4s', drift: '11vw', spinDuration: '4.5s', spinDelay: '-1.5s' },
+        ].map((petal, index) => (
+          <span
+            key={index}
+            className="animate-petal-fall absolute top-0 block drop-shadow-[0_0_4px_rgba(244,114,182,0.4)]"
+            style={{
+              left: petal.left,
+              width: petal.size,
+              height: petal.size,
+              animationDuration: petal.fallDuration,
+              animationDelay: petal.fallDelay,
+              animationTimingFunction: 'linear',
+              animationIterationCount: 'infinite',
+              ['--petal-drift' as string]: petal.drift,
+            } as CSSProperties}
+          >
+            <span
+              className="animate-petal-spin block h-full w-full"
+              style={{
+                animationDuration: petal.spinDuration,
+                animationDelay: petal.spinDelay,
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite',
+              }}
+            >
+              <CherryBlossom />
+            </span>
+          </span>
+        ))}
       </div>
 
       <main className="relative z-10 flex w-full max-w-3xl flex-col items-center">

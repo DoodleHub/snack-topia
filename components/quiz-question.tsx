@@ -59,7 +59,11 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
   return (
     <div className="relative flex min-h-full flex-1 flex-col items-center overflow-hidden bg-[#0f0618] px-6 py-10 sm:py-14">
       <Image
-        src="/images/questions/quiz-background.PNG"
+        src={
+          question.id === 5
+            ? "/images/questions/snacktopia_05.png"
+            : "/images/questions/quiz-background.PNG"
+        }
         alt=""
         fill
         priority

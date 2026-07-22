@@ -24,3 +24,44 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--petal-drift, 16vw));
+    opacity: 0;
+  }
+}
+
+@keyframes petal-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-petal-fall {
+  animation-name: petal-fall;
+}
+
+.animate-petal-spin {
+  animation-name: petal-spin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-petal-fall,
+  .animate-petal-spin {
+    animation: none;
+  }
+}
