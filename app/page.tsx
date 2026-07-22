@@ -1,68 +1,116 @@
 import Link from 'next/link';
+import { Playfair_Display } from 'next/font/google';
+import { HOME_PAGE_CONTENT } from '@/lib/constants';
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+});
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#1a0a2e] px-6 py-16">
+    <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#0b0714] px-6 py-16">
       {/* Ambient glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#ff6b3520_0%,_transparent_60%),radial-gradient(ellipse_at_bottom_right,_#f7c94818_0%,_transparent_50%),radial-gradient(ellipse_at_bottom_left,_#c084fc15_0%,_transparent_50%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#ff6b35]/10 blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#3d1f6b30_0%,_transparent_60%)]"
       />
 
-      {/* Floating decorations */}
+      {/* Floating lanterns and sparkles */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <span className="absolute left-[8%] top-[18%] text-4xl opacity-50 animate-bounce [animation-duration:3s]">
-          🍿
+        <span className="absolute left-[8%] top-[8%] h-3 w-3 rounded-full bg-[#f7c948]/60 blur-[2px] shadow-[0_0_20px_6px_rgba(247,201,72,0.35)]" />
+        <span className="absolute left-[28%] top-[3%] h-2 w-2 rounded-full bg-[#f7c948]/50 blur-[1px] shadow-[0_0_16px_4px_rgba(247,201,72,0.3)]" />
+        <span className="absolute right-[24%] top-[5%] h-2 w-2 rounded-full bg-[#f7c948]/50 blur-[1px] shadow-[0_0_16px_4px_rgba(247,201,72,0.3)]" />
+        <span className="absolute right-[8%] top-[10%] h-3 w-3 rounded-full bg-[#f7c948]/60 blur-[2px] shadow-[0_0_20px_6px_rgba(247,201,72,0.35)]" />
+        <span className="absolute right-[6%] top-[35%] text-sm text-[#c084fc]/40">
+          ❋
         </span>
-        <span className="absolute right-[12%] top-[28%] text-3xl opacity-45 animate-bounce [animation-duration:4s] [animation-delay:0.5s]">
-          🍪
+        <span className="absolute left-[10%] top-[55%] text-xs text-[#c084fc]/30">
+          ✻
         </span>
-        <span className="absolute bottom-[22%] left-[15%] text-3xl opacity-40 animate-bounce [animation-duration:3.5s] [animation-delay:1s]">
-          🍫
+        <span className="absolute right-[12%] bottom-[24%] text-sm text-[#c084fc]/30">
+          ✽
         </span>
-        <span className="absolute bottom-[30%] right-[10%] text-4xl opacity-45 animate-bounce [animation-duration:4.5s] [animation-delay:0.3s]">
-          🍩
+        <span className="absolute left-[20%] bottom-[12%] text-xs text-[#c084fc]/30">
+          ✦
         </span>
       </div>
 
-      <main className="relative z-10 flex w-full max-w-2xl flex-col items-center text-center">
-        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#f7c948]/30 bg-[#f7c948]/10 px-4 py-1.5 text-sm font-medium tracking-wide text-[#f7c948]">
-          <span aria-hidden>✨</span>
-          Snacktopia: Night Market Adventure
-        </p>
-
-        <h1 className="mb-6 bg-gradient-to-br from-[#fff5e6] via-[#f7c948] to-[#ff6b35] bg-clip-text text-5xl font-bold leading-tight tracking-tight text-transparent sm:text-6xl md:text-7xl">
-        Which Night Market Snack Are You? 
-        </h1>
-
-        <h1 className="mb-6 bg-gradient-to-br from-[#fff5e6] via-[#f7c948] to-[#ff6b35] bg-clip-text text-lg font-bold leading-tight tracking-tight text-transparent sm:text-2xl md:text-3xl">
-        Explore the market. Find your Snack Spirit.
-        </h1>
-
-        <p className="mb-12 max-w-lg text-lg leading-relaxed text-[#d4c4e8] sm:text-xl">
-          Set out on a delightful journey to uncover the snack that suits you
-          best - night market edition!
-        </p>
-
-        <Link
-          href="/story"
-          className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff6b35] to-[#f7c948] px-8 py-4 text-lg font-semibold text-[#1a0a2e] shadow-lg shadow-[#ff6b35]/25 transition-all hover:scale-105 hover:from-[#f7c948] hover:to-[#ff6b35] hover:shadow-xl hover:shadow-[#ff6b35]/35 active:scale-100"
-        >
-          Begin Your Adventure
+      <main className="relative z-10 flex w-full max-w-3xl flex-col items-center">
+        <div className="relative w-full rounded-3xl border border-[#f7c948]/15 bg-gradient-to-b from-[#241531]/90 to-[#180d24]/90 px-6 py-12 shadow-2xl shadow-black/40 backdrop-blur-sm sm:px-12 sm:py-14">
           <span
             aria-hidden
-            className="transition-transform group-hover:translate-x-1"
+            className="absolute left-6 top-6 text-[#c084fc]/40"
           >
-            →
+            ❋
           </span>
-        </Link>
+          <span
+            aria-hidden
+            className="absolute right-6 top-6 text-[#c084fc]/40"
+          >
+            ❋
+          </span>
+
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] shadow-[0_0_40px_10px_rgba(247,201,72,0.35)]">
+              <span className="text-2xl text-[#3a1b52]">✦</span>
+            </div>
+
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-[#f7c948]">
+              {HOME_PAGE_CONTENT.eyebrow}
+            </p>
+
+            <h1
+              className={`${playfairDisplay.className} mb-6 text-5xl leading-[1.05] font-bold sm:text-6xl md:text-7xl`}
+            >
+              <span className="block text-[#fdf6ec]">
+                {HOME_PAGE_CONTENT.titleLine1}
+              </span>
+              <span className="block text-[#f7c948] [text-shadow:0_0_30px_rgba(247,201,72,0.4)]">
+                {HOME_PAGE_CONTENT.titleLine2}
+              </span>
+            </h1>
+
+            <p className="mb-8 max-w-xl text-base leading-relaxed text-[#cdbfe0] sm:text-lg">
+              {HOME_PAGE_CONTENT.subtitle}
+            </p>
+
+            <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+              {HOME_PAGE_CONTENT.badges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-[#a78bfa]/20 bg-white/5 px-4 py-1.5 text-sm font-semibold text-[#d8cce8]"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            <Link
+              href="/story"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f7c948] to-[#ff8a3d] px-8 py-4 text-lg font-bold text-[#2a1140] shadow-lg shadow-[#ff8a3d]/25 transition-all hover:scale-105 hover:from-[#ff8a3d] hover:to-[#f7c948] hover:shadow-xl hover:shadow-[#ff8a3d]/35 active:scale-100"
+            >
+              {HOME_PAGE_CONTENT.ctaLabel}
+              <span
+                aria-hidden
+                className="transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
+
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-[#7c6f92]">
+              {HOME_PAGE_CONTENT.footnote}
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-10 text-center text-sm text-[#6b6377]">
+          {HOME_PAGE_CONTENT.attribution}
+        </p>
       </main>
     </div>
   );

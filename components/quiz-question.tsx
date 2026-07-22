@@ -54,6 +54,13 @@ export function QuizQuestion({ question, totalQuestions, imageUrl }: QuizQuestio
 
   return (
     <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#0f0618] px-6 py-12">
+      <Image
+        src="/images/questions/quiz-background.PNG"
+        alt=""
+        fill
+        priority
+        className="object-cover"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#7c3aed20_0%,_transparent_55%),radial-gradient(ellipse_at_bottom_right,_#ff6b3515_0%,_transparent_50%)]"

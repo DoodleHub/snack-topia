@@ -1,9 +1,17 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { BeginQuestButton } from '@/components/begin-quest-button';
 
 export default function StoryPage() {
   return (
     <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#0f0618] px-6 py-16">
+      <Image
+        src="/images/questions/quiz-background.PNG"
+        alt=""
+        fill
+        priority
+        className="object-cover"
+      />
       {/* Portal glow */}
       <div
         aria-hidden
@@ -22,8 +30,14 @@ export default function StoryPage() {
           ← Back
         </Link>
 
-        <div className="mb-10 flex h-20 w-20 items-center justify-center rounded-full border border-[#c084fc]/40 bg-[#7c3aed]/20 text-4xl shadow-lg shadow-[#7c3aed]/20">
-          <span aria-hidden>🌀</span>
+        <div className="relative mb-10 h-40 w-40 overflow-hidden rounded-full border border-[#c084fc]/40 shadow-lg shadow-[#7c3aed]/20 sm:h-48 sm:w-48">
+          <Image
+            src="/images/intro/story.png"
+            alt="A glowing portal opening into Snacktopia"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         <div className="relative mb-12 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">

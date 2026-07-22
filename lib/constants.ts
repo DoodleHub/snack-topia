@@ -34,6 +34,19 @@ export type QuizQuestionItem = {
   outcomeText?: string;
 };
 
+export const HOME_PAGE_CONTENT = {
+  eyebrow: "A Journey Through Snacktopia",
+  titleLine1: "The Moonlight",
+  titleLine2: "Night Market",
+  subtitle:
+    "One glowing token. Six curious choices. A snack spirit hidden somewhere among the lanterns, waiting to meet you.",
+  badges: ["6 story choices", "2 minutes", "1 snack spirit"],
+  ctaLabel: "Begin your journey",
+  footnote: "Follow the lantern light",
+  attribution:
+    "Created with lantern light, curiosity, and a little midnight magic.",
+} as const;
+
 export const QUIZ_INTRO = {
   title: "Snacktopia: Night Market Adventure",
   paragraphs: [
