@@ -96,7 +96,7 @@ export default function Home() {
       </div>
 
       <main className="relative z-10 flex w-full max-w-3xl flex-col items-center">
-        <div className="relative w-full rounded-3xl border border-[#f7c948]/15 bg-gradient-to-b from-[#241531]/90 to-[#180d24]/90 px-6 py-12 shadow-2xl shadow-black/40 backdrop-blur-sm sm:px-12 sm:py-14">
+        <div className="relative w-full rounded-3xl border border-[#f7c948]/15 bg-gradient-to-b from-[#241531]/18 to-[#180d24]/18 px-6 py-12 shadow-2xl shadow-black/40 backdrop-blur-sm sm:px-12 sm:py-14">
           <span
             aria-hidden
             className="absolute left-6 top-6 text-[#c084fc]/40"
