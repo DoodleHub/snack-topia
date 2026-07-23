@@ -8,6 +8,8 @@ import { useQuiz } from '@/lib/quiz-context';
 import { getTopSnackSpirit } from '@/lib/quiz-utils';
 import { SNACK_SPIRITS, type SpiritId } from '@/lib/constants';
 
+const APP_URL = 'https://snacktopia-quiz.vercel.app/';
+
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   weight: ['600', '700', '900'],
@@ -110,6 +112,12 @@ function PillHeader({ tone, children }: { tone: 'purple' | 'tan'; children: Reac
   );
 }
 
+const TRAIT_TONES = [
+  'border-[#f7c948]/40 bg-[#f7c948]/15 text-[#f7c948]',
+  'border-[#f9a8d4]/40 bg-[#f9a8d4]/15 text-[#f9a8d4]',
+  'border-[#c4b5fd]/40 bg-[#c4b5fd]/15 text-[#c4b5fd]',
+];
+
 function CompatAvatar({ id }: { id: SpiritId }) {
   const spirit = SNACK_SPIRITS[id];
   return (
@@ -192,15 +200,17 @@ export default function ResultsPage() {
 
   async function handleShare() {
     if (!spirit) return;
-    const shareText = `My snack spirit is ${spirit.name}! ${spirit.tagline}`;
-    const url = typeof window !== 'undefined' ? window.location.href : '';
+    const shareText = `My snack spirit is ${spirit.name}! ${spirit.tagline} See what your snack spirit is:`;
+    const url = APP_URL;
     const file = await captureResultImage();
 
     if (typeof navigator !== 'undefined' && navigator.share) {
       const canShareFile = !!file && navigator.canShare?.({ files: [file] });
       try {
         if (canShareFile && file) {
-          await navigator.share({ title: 'Snacktopia', text: shareText, files: [file] });
+          // url isn't included as a separate field here because share sheets
+          // commonly drop it when files are attached, so it's folded into text.
+          await navigator.share({ title: 'Snacktopia', text: `${shareText} ${url}`, files: [file] });
         } else {
           await navigator.share({ title: 'Snacktopia', text: shareText, url });
         }
@@ -262,10 +272,7 @@ export default function ResultsPage() {
     return null;
   }
 
-  const traitLine = spirit.traits
-    .split(',')
-    .map((trait) => trait.trim())
-    .join('  •  ');
+  const traits = spirit.traits.split(',').map((trait) => trait.trim());
 
   return (
     <div className="relative flex h-dvh flex-col overflow-hidden bg-[#0f0618] px-4 py-2 sm:px-6 sm:py-4">
@@ -288,10 +295,15 @@ export default function ResultsPage() {
             >
               {spirit.name}
             </h1>
-            <div className="my-1 flex justify-center sm:my-1.5">
-              <span className="rounded-full border border-white/15 bg-white/5 px-3 py-0.5 text-[10px] font-medium tracking-wide text-[#d8cce8] backdrop-blur-sm sm:px-4 sm:py-1 sm:text-sm">
-                {traitLine}
-              </span>
+            <div className="my-1 flex flex-wrap justify-center gap-1.5 sm:my-1.5 sm:gap-2">
+              {traits.map((trait, index) => (
+                <span
+                  key={trait}
+                  className={`rounded-full border px-3 py-0.5 text-[10px] font-semibold tracking-wide backdrop-blur-sm sm:px-4 sm:py-1 sm:text-sm ${TRAIT_TONES[index % TRAIT_TONES.length]}`}
+                >
+                  {trait}
+                </span>
+              ))}
             </div>
             <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#cdbfe0] sm:text-base">
               <Blossom className="text-[#f9a8d4]" />
