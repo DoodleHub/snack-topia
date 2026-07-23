@@ -9,6 +9,10 @@ export function getSpiritName(id: SpiritId): string {
   return SNACK_SPIRITS[id].name;
 }
 
+export function hasCompletedQuiz(weights: SpiritWeights): boolean {
+  return Object.keys(weights).length > 0;
+}
+
 export function getTopSnackSpirit(
   weights: SpiritWeights,
 ): (SnackSpirit & { id: SpiritId }) | null {

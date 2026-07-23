@@ -39,8 +39,8 @@ export const HOME_PAGE_CONTENT = {
   titleLine1: "The Moonlight",
   titleLine2: "Night Market",
   subtitle:
-    "One glowing token. Six curious choices. A snack spirit hidden somewhere among the lanterns, waiting to meet you.",
-  badges: ["6 story choices", "2 minutes", "1 snack spirit"],
+    "One glowing token. Eleven curious choices. A snack spirit hidden somewhere among the lanterns, waiting to meet you.",
+  badges: ["11 story choices", "2 minutes", "1 snack spirit"],
   ctaLabel: "Begin your journey",
   footnote: "Follow the lantern light",
   attribution:
