@@ -170,10 +170,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
-        <p className="mt-10 text-center text-sm text-[#6b6377]">
-          {HOME_PAGE_CONTENT.attribution}
-        </p>
       </main>
     </div>
   );

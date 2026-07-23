@@ -43,8 +43,6 @@ export const HOME_PAGE_CONTENT = {
   badges: ["11 story choices", "2 minutes", "1 snack spirit"],
   ctaLabel: "Begin your journey",
   footnote: "Follow the lantern light",
-  attribution:
-    "Created with lantern light, curiosity, and a little midnight magic.",
 } as const;
 
 export const QUIZ_INTRO = {

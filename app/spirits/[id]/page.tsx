@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FindSpiritLink } from "@/components/find-spirit-link";
 import { QuizBackLink } from "@/components/quiz-back-link";
 import { SpiritDetailCard } from "@/components/spirit-detail-card";
 import { playfairDisplay } from "@/lib/fonts";
@@ -29,13 +29,6 @@ export default async function SpiritPage({ params }: SpiritPageProps) {
       />
 
       <main className="relative z-10 mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-3 sm:max-w-xl sm:gap-4">
-        <QuizBackLink
-          href="/spirits"
-          className="inline-flex items-center gap-1 self-start text-xs font-semibold uppercase tracking-wide text-[#c9bcd9] transition-colors hover:text-[#fdf6ec]"
-        >
-          ← All Spirits
-        </QuizBackLink>
-
         <SpiritDetailCard spirit={{ ...spirit, id: id as SpiritId }} />
 
         <div className="rounded-2xl border border-white/10 bg-[#1a0a2e]/60 px-4 py-3 shadow-lg shadow-black/20 backdrop-blur-sm sm:px-6 sm:py-4">
@@ -51,13 +44,20 @@ export default async function SpiritPage({ params }: SpiritPageProps) {
         </div>
 
         <div className="flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-3">
-          <Link
+          <FindSpiritLink
             href="/"
             className="inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#f7c948] to-[#ff8a3d] px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2a1140] shadow-lg shadow-[#ff8a3d]/25 transition-all hover:scale-105 sm:px-6 sm:py-2.5 sm:text-sm"
           >
             Find Your Own Spirit
-          </Link>
+          </FindSpiritLink>
         </div>
+
+        <QuizBackLink
+          href="/spirits"
+          className="inline-flex items-center gap-1.5 self-center text-xs font-semibold uppercase tracking-wide text-[#c9bcd9] transition-colors hover:text-[#fdf6ec]"
+        >
+          ← All Spirits
+        </QuizBackLink>
       </main>
     </div>
   );

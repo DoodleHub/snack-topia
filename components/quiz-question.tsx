@@ -100,7 +100,7 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
             </div>
           )}
 
-          <div className="rounded-[32px] border border-white/10 bg-[#1a0a2e]/75 p-6 shadow-2xl shadow-black/40 backdrop-blur-md sm:p-10">
+          <div className="rounded-[32px] border border-white/10 bg-[#1a0a2e]/60 p-6 shadow-2xl shadow-black/40 backdrop-blur-md sm:p-10">
             <div className="mb-8">
               <div className="mb-3 flex items-center justify-between">
                 <span className="text-sm font-bold text-[#fdf6ec] sm:text-base">
