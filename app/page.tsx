@@ -59,12 +59,19 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         {[
+          { left: '2%', size: 10, fallDuration: '13s', fallDelay: '-8s', drift: '9vw', spinDuration: '5s', spinDelay: '-2.5s' },
           { left: '8%', size: 14, fallDuration: '14s', fallDelay: '-3s', drift: '14vw', spinDuration: '6s', spinDelay: '-1s' },
+          { left: '16%', size: 9, fallDuration: '11s', fallDelay: '-14s', drift: '8vw', spinDuration: '4s', spinDelay: '-3.5s' },
           { left: '24%', size: 11, fallDuration: '12s', fallDelay: '-10s', drift: '10vw', spinDuration: '5s', spinDelay: '-3s' },
+          { left: '35%', size: 12, fallDuration: '15s', fallDelay: '-5.5s', drift: '15vw', spinDuration: '6.5s', spinDelay: '-2s' },
           { left: '46%', size: 13, fallDuration: '16s', fallDelay: '-2s', drift: '17vw', spinDuration: '7s', spinDelay: '-4s' },
+          { left: '55%', size: 10, fallDuration: '12.5s', fallDelay: '-9s', drift: '11vw', spinDuration: '5s', spinDelay: '-1.5s' },
           { left: '64%', size: 10, fallDuration: '13s', fallDelay: '-12s', drift: '9vw', spinDuration: '5.5s', spinDelay: '-2s' },
+          { left: '72%', size: 13, fallDuration: '17s', fallDelay: '-7s', drift: '16vw', spinDuration: '7.5s', spinDelay: '-4.5s' },
           { left: '81%', size: 14, fallDuration: '15s', fallDelay: '-6s', drift: '13vw', spinDuration: '6.5s', spinDelay: '-5s' },
+          { left: '88%', size: 9, fallDuration: '11.5s', fallDelay: '-1s', drift: '8vw', spinDuration: '4.5s', spinDelay: '-3s' },
           { left: '93%', size: 11, fallDuration: '11s', fallDelay: '-4s', drift: '11vw', spinDuration: '4.5s', spinDelay: '-1.5s' },
+          { left: '97%', size: 12, fallDuration: '14.5s', fallDelay: '-11s', drift: '10vw', spinDuration: '6s', spinDelay: '-0.5s' },
         ].map((petal, index) => (
           <span
             key={index}
