@@ -125,6 +125,31 @@ function CompatAvatar({ id }: { id: SpiritId }) {
   );
 }
 
+async function addImagePadding(
+  dataUrl: string,
+  padding: number,
+  backgroundColor: string,
+): Promise<string> {
+  const img = new Image();
+  img.src = dataUrl;
+  await new Promise<void>((resolve, reject) => {
+    img.onload = () => resolve();
+    img.onerror = reject;
+  });
+
+  const canvas = document.createElement('canvas');
+  canvas.width = img.width + padding * 2;
+  canvas.height = img.height + padding * 2;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return dataUrl;
+
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, padding, padding);
+
+  return canvas.toDataURL('image/png');
+}
+
 export default function ResultsPage() {
   const { weights } = useQuiz();
   const spirit = useMemo(() => getTopSnackSpirit(weights), [weights]);
@@ -153,7 +178,8 @@ export default function ResultsPage() {
         pixelRatio: 2,
         backgroundColor: '#0f0618',
       });
-      const blob = await (await fetch(dataUrl)).blob();
+      const paddedDataUrl = await addImagePadding(dataUrl, 48, '#0f0618');
+      const blob = await (await fetch(paddedDataUrl)).blob();
       return new File([blob], `snacktopia-${spirit.id}.png`, { type: 'image/png' });
     } catch {
       return null;
@@ -296,15 +322,15 @@ export default function ResultsPage() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-1 sm:gap-2">
+            <div className="flex flex-col gap-3 sm:gap-2">
               <SectionRow icon={<HeartIcon />} title="Strengths">
                 {spirit.strengths}
               </SectionRow>
-              <hr className="border-t border-dashed border-white/10" />
+              <hr className="hidden border-t border-dashed border-white/10 sm:block" />
               <SectionRow icon={<CloudIcon />} title="Quirks">
                 {spirit.quirks}
               </SectionRow>
-              <hr className="border-t border-dashed border-white/10" />
+              <hr className="hidden border-t border-dashed border-white/10 sm:block" />
               <SectionRow icon={<StarburstIcon />} title="Why This Fit?">
                 {spirit.why}
               </SectionRow>

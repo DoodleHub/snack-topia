@@ -152,7 +152,7 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
                       className="sr-only"
                     />
                     <span
-                      className={`text-base leading-relaxed ${
+                      className={`select-none text-base leading-relaxed ${
                         isSelected ? "text-[#fff5e6]" : "text-[#d4c4e8]"
                       }`}
                     >
