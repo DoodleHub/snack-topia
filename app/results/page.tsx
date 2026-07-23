@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { Playfair_Display } from 'next/font/google';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { toPng } from 'html-to-image';
 import { useQuiz } from '@/lib/quiz-context';
 import { getTopSnackSpirit } from '@/lib/quiz-utils';
 import { SNACK_SPIRITS, type SpiritId } from '@/lib/constants';
@@ -128,19 +129,70 @@ export default function ResultsPage() {
   const { weights } = useQuiz();
   const spirit = useMemo(() => getTopSnackSpirit(weights), [weights]);
   const hasCompletedQuiz = Object.keys(weights).length > 0;
-  const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
+  const [shareState, setShareState] = useState<'idle' | 'copied' | 'downloaded'>('idle');
+  const shareCardRef = useRef<HTMLDivElement>(null);
+
+  async function captureResultImage(): Promise<File | null> {
+    if (!shareCardRef.current || !spirit) return null;
+    const node = shareCardRef.current;
+
+    // backdrop-filter isn't rasterized correctly by html-to-image, so it's
+    // disabled inline just for the snapshot, then restored afterward.
+    const blurredEls = Array.from(
+      node.querySelectorAll<HTMLElement>('[class*="backdrop-blur"]'),
+    );
+    const previousFilters = blurredEls.map((el) => el.style.backdropFilter);
+    blurredEls.forEach((el) => {
+      el.style.setProperty('backdrop-filter', 'none', 'important');
+      el.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+    });
+
+    try {
+      const dataUrl = await toPng(node, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: '#0f0618',
+      });
+      const blob = await (await fetch(dataUrl)).blob();
+      return new File([blob], `snacktopia-${spirit.id}.png`, { type: 'image/png' });
+    } catch {
+      return null;
+    } finally {
+      blurredEls.forEach((el, i) => {
+        el.style.backdropFilter = previousFilters[i];
+      });
+    }
+  }
 
   async function handleShare() {
     if (!spirit) return;
     const shareText = `My snack spirit is ${spirit.name}! ${spirit.tagline}`;
     const url = typeof window !== 'undefined' ? window.location.href : '';
+    const file = await captureResultImage();
 
     if (typeof navigator !== 'undefined' && navigator.share) {
+      const canShareFile = !!file && navigator.canShare?.({ files: [file] });
       try {
-        await navigator.share({ title: 'Snacktopia', text: shareText, url });
+        if (canShareFile && file) {
+          await navigator.share({ title: 'Snacktopia', text: shareText, files: [file] });
+        } else {
+          await navigator.share({ title: 'Snacktopia', text: shareText, url });
+        }
       } catch {
         // user cancelled share, nothing to do
       }
+      return;
+    }
+
+    if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      const link = document.createElement('a');
+      link.href = objectUrl;
+      link.download = file.name;
+      link.click();
+      URL.revokeObjectURL(objectUrl);
+      setShareState('downloaded');
+      setTimeout(() => setShareState('idle'), 2000);
       return;
     }
 
@@ -197,101 +249,103 @@ export default function ResultsPage() {
       />
 
       <main className="relative z-10 mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-2 sm:max-w-xl sm:gap-3">
-        {/* Header */}
-        <div className="text-center">
-          <p className="mb-0.5 flex items-center justify-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-[#f7c948] sm:text-xs sm:tracking-[0.25em]">
-            <Sparkle className="text-[#f7c948]" />
-            Your Snack Spirit Is
-            <Sparkle className="text-[#f7c948]" />
-          </p>
-          <h1
-            className={`${playfairDisplay.className} text-xl font-bold leading-tight text-[#fdf6ec] sm:text-4xl`}
-          >
-            {spirit.name}
-          </h1>
-          <div className="my-1 flex justify-center sm:my-1.5">
-            <span className="rounded-full border border-white/15 bg-white/5 px-3 py-0.5 text-[10px] font-medium tracking-wide text-[#d8cce8] backdrop-blur-sm sm:px-4 sm:py-1 sm:text-sm">
-              {traitLine}
-            </span>
-          </div>
-          <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#cdbfe0] sm:text-base">
-            <Blossom className="text-[#f9a8d4]" />
-            {spirit.tagline}
-            <Blossom className="text-[#f9a8d4]" />
-          </p>
-        </div>
-
-        {/* Main card */}
-        <div className="grid grid-cols-[auto_1fr] items-center gap-3 sm:gap-6">
-          <div className="flex flex-col items-center">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#1a0a2e]/70 px-3 py-2 shadow-lg shadow-black/30 backdrop-blur-sm sm:rounded-4xl sm:px-5 sm:py-3">
-              <span
-                className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full border border-[#f7c948]/50 bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] text-[11px] shadow-[0_0_12px_2px_rgba(247,201,72,0.35)] sm:right-2 sm:top-2 sm:h-6 sm:w-6 sm:text-sm"
-                aria-hidden
-              >
-                {spirit.emoji}
+        <div ref={shareCardRef} className="flex flex-col gap-2 sm:gap-3">
+          {/* Header */}
+          <div className="text-center">
+            <p className="mb-0.5 flex items-center justify-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-[#f7c948] sm:text-xs sm:tracking-[0.25em]">
+              <Sparkle className="text-[#f7c948]" />
+              Your Snack Spirit Is
+              <Sparkle className="text-[#f7c948]" />
+            </p>
+            <h1
+              className={`${playfairDisplay.className} text-xl font-bold leading-tight text-[#fdf6ec] sm:text-4xl`}
+            >
+              {spirit.name}
+            </h1>
+            <div className="my-1 flex justify-center sm:my-1.5">
+              <span className="rounded-full border border-white/15 bg-white/5 px-3 py-0.5 text-[10px] font-medium tracking-wide text-[#d8cce8] backdrop-blur-sm sm:px-4 sm:py-1 sm:text-sm">
+                {traitLine}
               </span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={spirit.image}
-                alt={spirit.name}
-                className="relative z-10 mx-auto h-16 w-16 object-contain drop-shadow-xl sm:h-24 sm:w-24"
-              />
             </div>
-            <p className="mt-1 max-w-28 text-center text-[9px] italic leading-snug text-[#a89bc0] sm:mt-1.5 sm:max-w-32 sm:text-xs">
-              &ldquo;{spirit.quote}&rdquo;
+            <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#cdbfe0] sm:text-base">
+              <Blossom className="text-[#f9a8d4]" />
+              {spirit.tagline}
+              <Blossom className="text-[#f9a8d4]" />
             </p>
           </div>
 
-          <div className="flex flex-col gap-1 sm:gap-2">
-            <SectionRow icon={<HeartIcon />} title="Strengths">
-              {spirit.strengths}
-            </SectionRow>
-            <hr className="border-t border-dashed border-white/10" />
-            <SectionRow icon={<CloudIcon />} title="Quirks">
-              {spirit.quirks}
-            </SectionRow>
-            <hr className="border-t border-dashed border-white/10" />
-            <SectionRow icon={<StarburstIcon />} title="Why This Fit?">
-              {spirit.why}
-            </SectionRow>
+          {/* Main card */}
+          <div className="grid grid-cols-[auto_1fr] items-center gap-3 sm:gap-6">
+            <div className="flex flex-col items-center">
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#1a0a2e]/70 px-3 py-2 shadow-lg shadow-black/30 backdrop-blur-sm sm:rounded-4xl sm:px-5 sm:py-3">
+                <span
+                  className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full border border-[#f7c948]/50 bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] text-[11px] shadow-[0_0_12px_2px_rgba(247,201,72,0.35)] sm:right-2 sm:top-2 sm:h-6 sm:w-6 sm:text-sm"
+                  aria-hidden
+                >
+                  {spirit.emoji}
+                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={spirit.image}
+                  alt={spirit.name}
+                  className="relative z-10 mx-auto h-16 w-16 object-contain drop-shadow-xl sm:h-24 sm:w-24"
+                />
+              </div>
+              <p className="mt-1 max-w-28 text-center text-[9px] italic leading-snug text-[#a89bc0] sm:mt-1.5 sm:max-w-32 sm:text-xs">
+                &ldquo;{spirit.quote}&rdquo;
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 sm:gap-2">
+              <SectionRow icon={<HeartIcon />} title="Strengths">
+                {spirit.strengths}
+              </SectionRow>
+              <hr className="border-t border-dashed border-white/10" />
+              <SectionRow icon={<CloudIcon />} title="Quirks">
+                {spirit.quirks}
+              </SectionRow>
+              <hr className="border-t border-dashed border-white/10" />
+              <SectionRow icon={<StarburstIcon />} title="Why This Fit?">
+                {spirit.why}
+              </SectionRow>
+            </div>
           </div>
-        </div>
 
-        {/* Compatibility + shine box */}
-        <div className="rounded-2xl border border-white/10 bg-[#1a0a2e]/60 px-3 py-2 shadow-lg shadow-black/20 backdrop-blur-sm sm:rounded-3xl sm:px-6 sm:py-3">
-          <div className="grid grid-cols-2 gap-x-2 gap-y-2 sm:gap-x-4 sm:gap-y-3">
-            <div className="flex flex-col items-center gap-1 border-r border-dashed border-white/10 pr-2 sm:gap-2 sm:pr-4">
-              <PillHeader tone="purple">Best With</PillHeader>
-              <div className="flex items-start gap-2 sm:gap-3">
-                {spirit.bestWith.map((id) => (
-                  <CompatAvatar key={id} id={id} />
-                ))}
+          {/* Compatibility + shine box */}
+          <div className="rounded-2xl border border-white/10 bg-[#1a0a2e]/60 px-3 py-2 shadow-lg shadow-black/20 backdrop-blur-sm sm:rounded-3xl sm:px-6 sm:py-3">
+            <div className="grid grid-cols-2 gap-x-2 gap-y-2 sm:gap-x-4 sm:gap-y-3">
+              <div className="flex flex-col items-center gap-1 border-r border-dashed border-white/10 pr-2 sm:gap-2 sm:pr-4">
+                <PillHeader tone="purple">Best With</PillHeader>
+                <div className="flex items-start gap-2 sm:gap-3">
+                  {spirit.bestWith.map((id) => (
+                    <CompatAvatar key={id} id={id} />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="flex flex-col items-center gap-1 pl-2 sm:gap-2 sm:pl-4">
-              <PillHeader tone="tan">Not So Good With</PillHeader>
-              <div className="flex items-start gap-2 sm:gap-3">
-                {spirit.notSoGoodWith.map((id) => (
-                  <CompatAvatar key={id} id={id} />
-                ))}
+              <div className="flex flex-col items-center gap-1 pl-2 sm:gap-2 sm:pl-4">
+                <PillHeader tone="tan">Not So Good With</PillHeader>
+                <div className="flex items-start gap-2 sm:gap-3">
+                  {spirit.notSoGoodWith.map((id) => (
+                    <CompatAvatar key={id} id={id} />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="col-span-2 flex flex-col items-center gap-1 border-t border-dashed border-white/10 pt-1.5 sm:gap-1.5 sm:pt-2.5">
-              <PillHeader tone="purple">You Shine When...</PillHeader>
-              <ul className="w-full space-y-0.5 sm:space-y-1">
-                {spirit.shineWhen.slice(0, 3).map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-1 text-[9px] leading-snug text-[#c9bcd9] sm:gap-1.5 sm:text-[13px]"
-                  >
-                    <Blossom className="mt-0.5 shrink-0 text-[#f9a8d4]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="col-span-2 flex flex-col items-center gap-1 border-t border-dashed border-white/10 pt-1.5 sm:gap-1.5 sm:pt-2.5">
+                <PillHeader tone="purple">You Shine When...</PillHeader>
+                <ul className="w-full space-y-0.5 sm:space-y-1">
+                  {spirit.shineWhen.slice(0, 3).map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-1 text-[9px] leading-snug text-[#c9bcd9] sm:gap-1.5 sm:text-[13px]"
+                    >
+                      <Blossom className="mt-0.5 shrink-0 text-[#f9a8d4]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -304,7 +358,11 @@ export default function ResultsPage() {
             className="inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#f7c948] to-[#ff8a3d] px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2a1140] shadow-lg shadow-[#ff8a3d]/25 transition-all hover:scale-105 sm:px-6 sm:py-2.5 sm:text-sm"
           >
             <UploadIcon />
-            {shareState === 'copied' ? 'Copied!' : 'Share Your Result'}
+            {shareState === 'copied'
+              ? 'Copied!'
+              : shareState === 'downloaded'
+                ? 'Image Saved!'
+                : 'Share Your Result'}
           </button>
           <Link
             href="/story"
