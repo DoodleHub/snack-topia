@@ -113,9 +113,9 @@ function CompatAvatar({ id }: { id: SpiritId }) {
   const spirit = SNACK_SPIRITS[id];
   return (
     <div className="flex flex-col items-center gap-1">
-      <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-[#ddc5ec] bg-[#f8ecf9] shadow-sm sm:h-14 sm:w-14">
+      <div className="h-9 w-9 rounded-xl border-2 border-[#ddc5ec] bg-[#f8ecf9] shadow-sm sm:h-14 sm:w-14">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={spirit.image} alt={spirit.name} className="h-full w-full object-cover" />
+        <img src={spirit.image} alt={spirit.name} className="h-full w-full object-contain" />
       </div>
       <span className="text-center text-[9px] font-medium leading-tight text-[#3d2452] sm:text-xs">
         {spirit.name}
