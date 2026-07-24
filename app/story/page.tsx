@@ -11,9 +11,9 @@ export default function StoryPage() {
           alt=""
           fill
           priority
-          className="object-cover brightness-[0.88] saturate-[1.05]"
+          className="object-cover brightness-[0.7] saturate-[1.05]"
         />
-        <div className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/30" />
+        <div className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/50" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.4)_100%)]" />
         {/* Portal glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#7c3aed25_0%,_transparent_70%)]" />

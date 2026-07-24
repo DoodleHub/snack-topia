@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -26,7 +27,7 @@ async function addImagePadding(
   padding: number,
   backgroundColor: string,
 ): Promise<string> {
-  const img = new Image();
+  const img = new window.Image();
   img.src = dataUrl;
   await new Promise<void>((resolve, reject) => {
     img.onload = () => resolve();
@@ -139,14 +140,41 @@ export default function ResultsPage() {
   }
 
   return (
-    <div className="relative flex h-dvh flex-col overflow-hidden bg-[#0f0618] px-4 py-2 sm:px-6 sm:py-4">
+    <div className="relative flex h-dvh flex-col overflow-hidden bg-[#0f0618] px-4 py-4 sm:px-6 sm:py-4">
+      <div aria-hidden className="fixed inset-0 overflow-hidden">
+        <Image
+          src="/images/questions/quiz-background.PNG"
+          alt=""
+          fill
+          priority
+          className="object-cover brightness-[0.7] saturate-[1.05]"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[#1a0a2e]/50" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_45%,_rgba(0,0,0,0.4)_100%)]" />
+      </div>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#f7c94812_0%,_transparent_55%),radial-gradient(ellipse_at_bottom,_#7c3aed20_0%,_transparent_55%)]"
       />
 
-      <main className="relative z-10 mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-2 sm:max-w-xl sm:gap-3">
-        <SpiritDetailCard spirit={spirit} eyebrow="Your Snack Spirit Is" innerRef={shareCardRef} />
+      <div className="relative z-10 mx-auto flex w-full max-w-sm items-center justify-between gap-2 pb-1 sm:max-w-xl sm:pb-2">
+        <Link href="/" className="group flex w-fit items-center gap-1.5 sm:gap-2">
+          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] shadow-[0_0_16px_4px_rgba(247,201,72,0.35)] transition-transform group-hover:scale-105 sm:h-9 sm:w-9 sm:rounded-2xl">
+            <span className="text-xs text-[#3a1b52] sm:text-base">✦</span>
+          </div>
+          <span className="text-xs font-bold text-[#fdf6ec] transition-colors group-hover:text-[#c4b5fd] sm:text-base">
+            Snacktopia
+          </span>
+        </Link>
+        <span className="rounded-full border border-white/15 bg-[#1a0a2e]/60 px-3 py-1 text-[9px] font-bold text-[#fdf6ec] backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-xs">
+          Night Market Edition
+        </span>
+      </div>
+
+      <main className="relative z-10 mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-1.5 overflow-hidden sm:max-w-xl sm:gap-3">
+        <div className="rounded-[28px] border border-white/10 bg-[#1a0a2e]/60 p-2 shadow-2xl shadow-black/40 backdrop-blur-md sm:rounded-4xl sm:p-5">
+          <SpiritDetailCard spirit={spirit} eyebrow="Your Snack Spirit Is" innerRef={shareCardRef} />
+        </div>
 
         {/* Actions */}
         <div className="flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-3">
@@ -168,13 +196,21 @@ export default function ResultsPage() {
           >
             See All Spirits
           </Link>
-          <Link
-            href="/story"
+          <a
+            href="https://buymeacoffee.com/oddlymade"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#fdf6ec] backdrop-blur-sm transition-colors hover:border-white/30 hover:bg-white/5 sm:px-6 sm:py-2.5 sm:text-sm"
           >
-            Take the Quiz Again
-          </Link>
+            Support Us 🧋
+          </a>
         </div>
+
+        {/* Support us */}
+        <p className="mx-auto max-w-xs text-center text-[9px] leading-snug text-[#a89bc0] sm:max-w-md sm:text-[11px]">
+          Enjoyed your Snack Spirit result? This quiz was lovingly made as a playful little side
+          project. If it made you smile, you can support future cozy creations with a cup of tea.
+        </p>
       </main>
     </div>
   );
