@@ -35,23 +35,22 @@ export type QuizQuestionItem = {
 };
 
 export const HOME_PAGE_CONTENT = {
-  eyebrow: "A Journey Through Snacktopia",
+  eyebrow: "Snacktopia",
   titleLine1: "Night Market",
   titleLine2: "Edition",
   subtitle:
-    "One glowing token. Eleven curious choices. A snack spirit hidden somewhere among the lanterns, waiting to meet you.",
+    "A journey through a magical world, where your Snack Spirit is hidden among the glowing lanterns, waiting to meet you.",
   badges: ["11 story choices", "16 snack spirits"],
   ctaLabel: "Start",
   footnote: "Follow your heart",
 } as const;
-
 export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
   questions: [
     {
       id: 1,
       title: "Choosing Your Path",
       question:
-        "You step beneath the glowing archway and enter the Moonlight Night Market. Several winding streets stretch ahead. Which path draws you in?",
+        "You step beneath the glowing archway and enter the Moonlight Night Market. Which path draws you in?",
       options: [
         {
           id: "a",
@@ -95,7 +94,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 2,
       title: "Crossing the Canal",
       question:
-        "Your path leads to a canal glowing with floating lotus flowers. The bridge is raised for the evening parade. How do you cross?",
+        "Your path leads to a canal glowing with floating lotus flowers. The bridge is raised for the evening parade.\n How do you cross?",
       options: [
         {
           id: "a",
@@ -139,7 +138,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 3,
       title: "The Snack Creature's Gift",
       question:
-        "On the other side of the canal, a friendly snack creature welcomes you to its stall and offers you a gift. How do you respond?",
+        "On the other side of the canal, a friendly snack creature welcomes you to its stall and offers you a gift.\n How do you respond?",
       options: [
         {
           id: "a",
@@ -183,7 +182,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
   id: 4,
   title: "Earning a Market Token",
   question:
-    "At the next stall, the owner offers you a market token in exchange for something meaningful. What do you contribute?",
+    "At the next stall, the owner offers you a market token in exchange for something meaningful.\n What do you contribute?",
   options: [
     {
       id: "a",
@@ -229,7 +228,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 5,
       title: "The Mischievous Fox",
       question:
-        "A mischievous fox darts through the crowd, snatches your token, and disappears between the stalls. What do you do?",
+        "A mischievous fox darts through the crowd, snatches your token, and disappears between the stalls.\n What do you do?",
       options: [
         {
           id: "a",
@@ -275,7 +274,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 6,
       title: "The Arcade",
       question:
-        "After retrieving your market token, you discover an arcade where the token can be exchanged for one experience. How do you spend it?",
+        "After getting your token back, you discover an arcade where the token can be used.\n How do you spend it?",
       options: [
         {
           id: "a",
@@ -288,7 +287,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "b",
-          text: "Enter a puzzle booth filled with riddles and hidden clues",
+          text: "Enter a puzzle booth filled with riddles",
           weights: {
             "sesame-ball-sage": 2,
             "matcha-strategist": 1,
@@ -319,7 +318,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 7,
       title: "The Moonlight Food Festival",
       question:
-        "Red lanterns sway overhead as vendors serve sizzling skewers, steamed dumplings, pastries, and fragrant tea. Which activity draws you in?",
+        "Lanterns sway overhead as vendors serve sizzling skewers, steamed dumplings, pastries, and fragrant tea.\n Which activity draws you in?",
       options: [
         {
           id: "a",
@@ -363,7 +362,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 8,
       title: "The Darkened Stall",
       question:
-        "A nearby stall suddenly goes dark. The worried owner looks around for help as customers begin to gather. What do you do first?",
+        "A nearby stall suddenly goes dark. The worried owner looks around for help as customers begin to gather.\n What do you do?",
       options: [
         {
           id: "a",
@@ -409,7 +408,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 9,
       title: "Above the Lanterns",
       question:
-        "Beyond the festival, you climb to a quiet rooftop overlooking the entire market. How do you spend the moment?",
+        "Beyond the festival, you climb to a quiet rooftop overlooking the entire market.\n How do you spend the moment?",
       options: [
         {
           id: "a",
@@ -453,7 +452,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 10,
       title: "Grand Guardian Nibble's Gift",
       question:
-        "As the moon reaches its highest point, Grand Guardian Nibble appears and offers you one final gift. Which do you choose?",
+        "As the moon reaches its highest point, Grand Guardian Nibble appears and offers you one final gift.\n Which do you choose?",
       options: [
         {
           id: "a",
@@ -497,7 +496,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 11,
       title: "Returning Home",
       question:
-        "The lanterns dim and a swirling portal returns you to your kitchen. Which feeling from your journey remains strongest?",
+        "The lanterns dim and a swirling portal returns you to your kitchen.\n Which feeling from your journey remains strongest?",
       options: [
         {
           id: "a",

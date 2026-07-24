@@ -26,9 +26,10 @@ export default function StoryPage() {
                   The moment you touch it, a portal opens and sweeps you into <b>Snacktopia</b>, a magical world.
                   Tonight, your journey begins at the <b>Moonlight Night Market</b>.
                      </p>
+                     <br></br>
                      <p className="text-base leading-[1.9] text-[#d4c4e8] sm:text-lg">
             Waiting at the entrance is <b>Grand Guardian Nibble</b>, the ruler and protector of <b>Snacktopia</b>. He explains that somewhere in the market lives a <b>Snack Spirit</b> whose personality reflects your own.
-            Explore the stalls, face challenges, and follow your instincts. <b>Your Snack Spirit is waiting.</b>
+            Explore the stalls, face challenges, and follow your instincts.    <br></br>   <br></br>Your <b>Snack Spirit</b> is waiting.
                              </p>
         </div>
 
