@@ -189,7 +189,7 @@ export function SpiritDetailCard({
           </div>
 
           <div className="flex flex-col items-center gap-1 pl-2 sm:gap-2 sm:pl-4">
-            <PillHeader tone="tan">Not So Good With</PillHeader>
+            <PillHeader tone="tan">May Clash With</PillHeader>
             <div className="flex items-start gap-2 sm:gap-3">
               {spirit.notSoGoodWith.map((id) => (
                 <CompatAvatar key={id} id={id} />
@@ -203,9 +203,9 @@ export function SpiritDetailCard({
               {spirit.shineWhen.slice(0, 3).map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-1 text-[9px] leading-snug text-[#c9bcd9] sm:gap-1.5 sm:text-[13px]"
+                  className="flex items-center gap-1 text-[9px] leading-snug text-[#c9bcd9] sm:gap-1.5 sm:text-[13px]"
                 >
-                  <Blossom className="mt-0.5 shrink-0 text-[#f9a8d4]" />
+                  <Blossom className="shrink-0 text-[#f9a8d4]" />
                   <span>{item}</span>
                 </li>
               ))}

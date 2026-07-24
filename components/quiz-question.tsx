@@ -114,10 +114,10 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
                 return (
                   <label
                     key={option.id}
-                    className={`group flex cursor-pointer items-start gap-4 rounded-2xl border p-4 transition-all sm:p-5 ${
+                    className={`group flex cursor-pointer items-start gap-4 rounded-2xl border p-4 transition-all duration-300 sm:p-5 ${
                       isSelected
-                        ? "border-[#f7c948] bg-white/5 shadow-[0_0_24px_-6px_rgba(247,201,72,0.6)]"
-                        : "border-white/10 bg-white/5 hover:border-[#f7c948]/50 hover:bg-white/8"
+                        ? "border-[#f7c948] bg-[rgba(247,180,40,0.12)] shadow-[0_0_0_1px_rgba(247,201,72,0.4),0_0_20px_2px_rgba(247,180,40,0.35),0_0_48px_8px_rgba(247,150,20,0.18)]"
+                        : "border-white/10 bg-white/5 hover:border-[#f7c948]/50 hover:bg-[rgba(247,180,40,0.06)] hover:shadow-[0_0_16px_2px_rgba(247,180,40,0.12)]"
                     } ${isSubmitting ? "pointer-events-none" : ""}`}
                   >
                     <input
@@ -134,7 +134,7 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
                     />
                     <span
                       className={`select-none text-base leading-relaxed ${
-                        isSelected ? "text-[#fff5e6]" : "text-[#d4c4e8]"
+                        isSelected ? "text-[#ffe9b0]" : "text-[#d4c4e8]"
                       }`}
                     >
                       {option.text}
