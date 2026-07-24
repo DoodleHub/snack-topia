@@ -101,7 +101,7 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
 
             <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/20">
               <Image
-                src={`/images/questions/snacktopia_question_${String(question.id).padStart(2, "0")}_4x3.webp`}
+                src={`/images/questions/snacktopia_question_${String(question.id).padStart(2, "0")}.webp`}
                 alt=""
                 width={700}
                 height={525}
