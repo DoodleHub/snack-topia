@@ -74,8 +74,8 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
           id: "c",
           text: "A mysterious alley marked with swirling lantern symbols and a soft melody",
           weights: {
-            "bao-bun-mystic": 2,
-            "mochi-dreamer": 1,
+            "mochi-dreamer": 2,
+            "bao-bun-mystic": 1,
             "sesame-ball-sage": 0.5,
           },
         },
@@ -160,10 +160,10 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "c",
-          text: "Take a warm honey-filled pancake that feels comforting in your hands",
+          text: "Take a warm honey-filled pancake to save for later in your journey",
           weights: {
-            "hotteok-comforter": 2,
-            "onigiri-guardian": 1,
+            "onigiri-guardian": 2,
+            "hotteok-comforter": 1,
             "mooncake-keeper": 0.5,
           },
         },
@@ -215,9 +215,9 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: "d",
       text: "A tiny handmade charm meant to bring good luck to everyone who visits the stall",
       weights: {
-        "taiyaki-artist": 2,
-        "mochi-dreamer": 1,
-        "mooncake-keeper": 0.5,
+        "pocky-matchmaker": 2,
+        "taiyaki-artist": 1,
+        "mochi-dreamer": 0.5,
           },
         },
       ],
@@ -243,8 +243,8 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
           id: "b",
           text: "Offer it part of your snack in exchange for the token",
           weights: {
-            "hotteok-comforter": 2,
-            "dumpling-diplomat": 1,
+            "dumpling-diplomat": 2,
+            "hotteok-comforter": 1,
             "pocky-matchmaker": 0.5,
           },
         },
@@ -366,11 +366,11 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       options: [
         {
           id: "a",
-          text: "Inspect the stall and experiment with ways to restore the lights",
+          text: "Inspect the stall and work through possible ways to restore the lights",
           weights: {
-            "taiyaki-artist": 2,
-            "matcha-strategist": 1,
-            "sesame-ball-sage": 0.5,
+            "matcha-strategist": 2,
+            "sesame-ball-sage": 1,
+            "taiyaki-artist": 0.5,
           },
         },
         {
@@ -404,8 +404,54 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       outcomeText:
         "Soon, the lanterns glow again and the stall returns to life.",
     },
+{
+id: 9,
+title: "The Moonlight Parade",
+question:
+"Music suddenly fills the market as the evening parade begins. A vendor invites you to join.\n How do you take part?",
+options: [
+{
+id: "a",
+text: "Carry a lantern at the back and quietly imagine where the parade might lead",
+weights: {
+"mochi-dreamer": 2,
+"bao-bun-mystic": 1,
+"shrimp-chip-explorer": 0.5,
+},
+},
+{
+id: "b",
+text: "Join the performers and improvise something no one planned",
+weights: {
+"wasabi-pea-spark": 2,
+"takoyaki-dynamo": 1,
+"taiyaki-artist": 0.5,
+},
+},
+{
+id: "c",
+text: "Help organize the lantern carriers and keep the parade moving smoothly",
+weights: {
+"matcha-strategist": 2,
+"onigiri-guardian": 1,
+"dumpling-diplomat": 0.5,
+},
+},
+{
+id: "d",
+text: "Gather the travelers you have met and invite others to join along the way",
+weights: {
+"boba-socialite": 2,
+"pocky-matchmaker": 1,
+"dumpling-diplomat": 0.5,
+},
+},
+],
+outcomeText:
+"The parade winds through the market, filling the streets with music, laughter, and glowing lantern light.",
+},
     {
-      id: 9,
+      id: 10,
       title: "Above the Lanterns",
       question:
         "Beyond the festival, you climb to a quiet rooftop overlooking the entire market.\n How do you spend the moment?",
@@ -449,7 +495,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       ],
     },
     {
-      id: 10,
+      id: 11,
       title: "Grand Guardian Nibble's Gift",
       question:
         "As the moon reaches its highest point, Grand Guardian Nibble appears and offers you one final gift.\n Which do you choose?",
@@ -474,11 +520,11 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "c",
-          text: "A bottomless basket of comforting snacks to share",
+          text: "A bottomless basket of treats that always has enough for everyone",
           weights: {
-            "hotteok-comforter": 2,
-            "pocky-matchmaker": 1,
-            "onigiri-guardian": 0.5,
+            "pocky-matchmaker": 2,
+            "hotteok-comforter": 1,
+            "onigiri-guardian": 0.5, 
           },
         },
         {
@@ -493,7 +539,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       ],
     },
     {
-      id: 11,
+      id: 12,
       title: "Returning Home",
       question:
         "The lanterns dim and a swirling portal returns you to your kitchen.\n Which feeling from your journey remains strongest?",
@@ -527,10 +573,10 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "d",
-          text: "Comfort in knowing you found a place where you belong",
+          text: "Comfort in knowing the market feels like a second home",
           weights: {
-            "hotteok-comforter": 2,
-            "mooncake-keeper": 1,
+            "mooncake-keeper": 2,
+            "hotteok-comforter": 1,
             "egg-tart-classic": 0.5,
           },
         },
