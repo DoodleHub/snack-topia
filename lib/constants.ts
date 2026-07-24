@@ -179,50 +179,50 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       ],
     },
    {
-id: 4,
-title: "Earning a Market Token",
-question:
-"At the next stall, the owner offers you a market token if you help out for a few minutes.\n Which task do you choose?",
-options: [
-{
-id: "a",
-text: "Greet passing customers and invite them to visit the stall",
-weights: {
-"boba-socialite": 2,
-"pocky-matchmaker": 1,
-"dumpling-diplomat": 0.5,
-},
-},
-{
-id: "b",
-text: "Organize the supplies and help keep the orders moving smoothly",
-weights: {
-"egg-tart-classic": 2,
-"matcha-strategist": 1,
-"onigiri-guardian": 0.5,
-},
-},
-{
-id: "c",
-text: "Decorate the menu board with drawings of the stall’s snacks",
-weights: {
-"mochi-dreamer": 2,
-"taiyaki-artist": 1,
-"mooncake-keeper": 0.5,
-},
-},
-{
-id: "d",
-text: "Sample a mystery snack and give the owner your honest reaction",
-weights: {
-"shrimp-chip-explorer": 2,
-"wasabi-pea-spark": 1,
-"tanghulu-adventurer": 0.5,
-},
-},
-],
-outcomeText:
-"After you finish helping, the stall owner thanks you and places the glowing token in your hand.",
+  id: 4,
+  title: "Earning a Market Token",
+  question:
+    "At the next stall, the owner offers you a market token if you help out for a few minutes.\n Which task do you choose?",
+  options: [
+    {
+      id: "a",
+      text: "Perform a dance for the waiting crowd",
+      weights: {
+        "takoyaki-dynamo": 2,
+        "boba-socialite": 1,
+        "pocky-matchmaker": 0.5,
+      },
+    },
+    {
+      id: "b",
+      text: "Study an enchanted recipe and identify the missing ingredient",
+      weights: {
+        "sesame-ball-sage": 2,
+        "matcha-strategist": 1,
+        "egg-tart-classic": 0.5,
+      },
+    },
+    {
+      id: "c",
+      text: "Help prepare and serve snacks to other travelers",
+      weights: {
+        "hotteok-comforter": 2,
+        "onigiri-guardian": 1,
+        "dumpling-diplomat": 0.5,
+      },
+    },
+    {
+      id: "d",
+      text: "Design a colorful new sign for the stall",
+      weights: {
+        "taiyaki-artist": 2,
+        "mochi-dreamer": 1,
+        "pocky-matchmaker": 0.5,
+      },
+    },
+  ],
+  outcomeText:
+    "After you finish helping, the stall owner thanks you and places the glowing token in your hand.",
 },
     {
       id: 5,
