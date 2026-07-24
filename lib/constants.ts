@@ -187,19 +187,19 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
   options: [
     {
       id: "a",
-      text: "An entertaining story from one of your past adventures",
+      text: "A lively tale that leaves the owner and nearby travelers laughing",
       weights: {
-        "boba-socialite": 2,
-        "takoyaki-dynamo": 1,
-        "tanghulu-adventurer": 0.5,
+        "takoyaki-dynamo": 2,
+        "boba-socialite": 1,
+        "pocky-matchmaker": 0.5,
       },
     },
     {
       id: "b",
-      text: "A thoughtful observation that could help improve the stall",
+      text: "A thoughtful suggestion for making the stall run more smoothly",
       weights: {
-        "matcha-strategist": 2,
-        "sesame-ball-sage": 1,
+        "sesame-ball-sage": 2,
+        "matcha-strategist": 1,
         "egg-tart-classic": 0.5,
       },
     },
@@ -273,6 +273,50 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: 6,
+      title: "The Arcade",
+      question:
+        "After retrieving your market token, you discover an arcade where the token can be exchanged for one experience. How do you spend it?",
+      options: [
+        {
+          id: "a",
+          text: "Play a fast reflex game with flashing targets",
+          weights: {
+            "takoyaki-dynamo": 2,
+            "wasabi-pea-spark": 1,
+            "tanghulu-adventurer": 0.5,
+          },
+        },
+        {
+          id: "b",
+          text: "Enter a puzzle booth filled with riddles and hidden clues",
+          weights: {
+            "sesame-ball-sage": 2,
+            "matcha-strategist": 1,
+            "bao-bun-mystic": 0.5,
+          },
+        },
+        {
+          id: "c",
+          text: "Join a team challenge where everyone works together",
+          weights: {
+            "dumpling-diplomat": 2,
+            "pocky-matchmaker": 1,
+            "boba-socialite": 0.5,
+          },
+        },
+        {
+          id: "d",
+          text: "Save the token for something else in the market",
+          weights: {
+            "matcha-strategist": 2,
+            "egg-tart-classic": 1,
+            "shrimp-chip-explorer": 0.5,
+          },
+        },
+      ],
+    },
+    {
+      id: 7,
       title: "The Moonlight Food Festival",
       question:
         "Red lanterns sway overhead as vendors serve sizzling skewers, steamed dumplings, pastries, and fragrant tea. Which activity draws you in?",
@@ -316,7 +360,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       ],
     },
     {
-      id: 7,
+      id: 8,
       title: "The Darkened Stall",
       question:
         "A nearby stall suddenly goes dark. The worried owner looks around for help as customers begin to gather. What do you do first?",
@@ -360,50 +404,6 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       ],
       outcomeText:
         "Soon, the lanterns glow again and the stall returns to life.",
-    },
-    {
-      id: 8,
-      title: "The Market Arcade",
-      question:
-        "You discover an arcade where your market token can be exchanged for one experience. How do you spend it?",
-      options: [
-        {
-          id: "a",
-          text: "Play a fast reflex game with flashing targets",
-          weights: {
-            "takoyaki-dynamo": 2,
-            "wasabi-pea-spark": 1,
-            "tanghulu-adventurer": 0.5,
-          },
-        },
-        {
-          id: "b",
-          text: "Enter a puzzle booth filled with riddles and hidden clues",
-          weights: {
-            "sesame-ball-sage": 2,
-            "matcha-strategist": 1,
-            "bao-bun-mystic": 0.5,
-          },
-        },
-        {
-          id: "c",
-          text: "Join a team challenge where everyone works together",
-          weights: {
-            "dumpling-diplomat": 2,
-            "pocky-matchmaker": 1,
-            "boba-socialite": 0.5,
-          },
-        },
-        {
-          id: "d",
-          text: "Save the token for something else in the market",
-          weights: {
-            "matcha-strategist": 2,
-            "egg-tart-classic": 1,
-            "shrimp-chip-explorer": 0.5,
-          },
-        },
-      ],
     },
     {
       id: 9,
