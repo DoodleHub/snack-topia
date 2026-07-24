@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { QuizBackLink } from "@/components/quiz-back-link";
+import { Footer } from "@/components/footer";
 import { playfairDisplay } from "@/lib/fonts";
 import { SNACK_SPIRITS, SPIRIT_IDS } from "@/lib/constants";
 
@@ -10,13 +11,13 @@ export default function SpiritsPage() {
   }));
 
   return (
-    <div className="relative flex min-h-full flex-col overflow-hidden bg-[#0f0618] px-4 py-8 sm:px-6 sm:py-12">
+    <div className="relative flex min-h-full flex-1 flex-col overflow-hidden bg-[#0f0618] pb-4 pt-8 sm:pb-6 sm:pt-12">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#f7c94812_0%,_transparent_55%),radial-gradient(ellipse_at_bottom,_#7c3aed20_0%,_transparent_55%)]"
       />
 
-      <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center gap-8">
+      <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center gap-8 px-4 sm:px-6">
         <div className="text-center">
           <p className="mb-1 flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-[#f7c948]">
             <span aria-hidden>✦</span>
@@ -61,6 +62,8 @@ export default function SpiritsPage() {
           ← Back to Your Result
         </QuizBackLink>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Playfair_Display } from 'next/font/google';
 import { HOME_PAGE_CONTENT } from '@/lib/constants';
+import { Footer } from '@/components/footer';
 import type { CSSProperties } from 'react';
 
 const playfairDisplay = Playfair_Display({
@@ -23,7 +24,7 @@ function CherryBlossom() {
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#0b0714] px-6 py-6 sm:py-16">
+    <div className="relative flex min-h-full flex-1 flex-col items-center justify-center overflow-hidden bg-[#0b0714] py-6 sm:py-16">
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -102,7 +103,7 @@ export default function Home() {
         ))}
       </div>
 
-      <main className="relative z-10 flex w-full max-w-3xl flex-col items-center">
+      <main className="relative z-10 flex w-full max-w-3xl flex-col items-center px-6">
         <div className="relative w-full rounded-3xl border border-[#f7c948]/15 bg-gradient-to-b from-[#241531]/18 to-[#180d24]/18 px-6 py-6 shadow-2xl shadow-black/40 backdrop-blur-sm sm:px-12 sm:py-14">
           <span
             aria-hidden
@@ -171,6 +172,8 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

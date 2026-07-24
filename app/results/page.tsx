@@ -8,6 +8,7 @@ import { toPng } from 'html-to-image';
 import { useQuiz } from '@/lib/quiz-context';
 import { getTopSnackSpirit, hasCompletedQuiz as checkHasCompletedQuiz } from '@/lib/quiz-utils';
 import { SpiritDetailCard } from '@/components/spirit-detail-card';
+import { Footer } from '@/components/footer';
 
 const APP_URL = 'https://snacktopia-quiz.vercel.app/';
 
@@ -140,7 +141,7 @@ export default function ResultsPage() {
   }
 
   return (
-    <div className="relative flex h-dvh flex-col overflow-hidden bg-[#0f0618] px-4 py-4 sm:px-6 sm:py-4">
+    <div className="relative flex min-h-dvh flex-col bg-[#0f0618] py-4 sm:py-4">
       <div aria-hidden className="fixed inset-0 overflow-hidden">
         <Image
           src="/images/questions/quiz-background.PNG"
@@ -157,7 +158,7 @@ export default function ResultsPage() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#f7c94812_0%,_transparent_55%),radial-gradient(ellipse_at_bottom,_#7c3aed20_0%,_transparent_55%)]"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-sm items-center justify-between gap-2 pb-1 sm:max-w-xl sm:pb-2">
+      <div className="relative z-10 mx-auto flex w-full max-w-sm items-center justify-between gap-2 px-4 pb-2 sm:max-w-xl sm:px-6 sm:pb-4">
         <Link href="/" className="group flex w-fit items-center gap-1.5 sm:gap-2">
           <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] shadow-[0_0_16px_4px_rgba(247,201,72,0.35)] transition-transform group-hover:scale-105 sm:h-9 sm:w-9 sm:rounded-2xl">
             <span className="text-xs text-[#3a1b52] sm:text-base">✦</span>
@@ -171,7 +172,7 @@ export default function ResultsPage() {
         </span>
       </div>
 
-      <main className="relative z-10 mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-1.5 overflow-hidden sm:max-w-xl sm:gap-3">
+      <main className="relative z-10 mx-auto flex w-full max-w-sm flex-col gap-1.5 px-4 sm:max-w-xl sm:flex-1 sm:justify-center sm:gap-3 sm:px-6">
         <div className="rounded-[28px] border border-white/10 bg-[#1a0a2e]/60 p-2 shadow-2xl shadow-black/40 backdrop-blur-md sm:rounded-4xl sm:p-5">
           <SpiritDetailCard spirit={spirit} eyebrow="Your Snack Spirit Is" innerRef={shareCardRef} />
         </div>
@@ -212,6 +213,8 @@ export default function ResultsPage() {
           project. If it made you smile, you can support future cozy creations with a cup of tea.
         </p>
       </main>
+
+      <Footer />
     </div>
   );
 }

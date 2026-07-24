@@ -6,6 +6,7 @@ import type { QuizQuestionItem } from "@/lib/constants";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useQuiz } from "@/lib/quiz-context";
+import { Footer } from "@/components/footer";
 
 type QuizQuestionProps = {
   question: QuizQuestionItem;
@@ -31,12 +32,6 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
     return () => cancelAnimationFrame(frame);
   }, [progress]);
 
-  function handleBack() {
-    if (question.id > 1) {
-      router.push(`/quiz/${question.id - 1}`);
-    }
-  }
-
   function handleSelectOption(optionId: string) {
     if (isSubmitting) return;
 
@@ -57,7 +52,7 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
   }
 
   return (
-    <div className="scrollbar-hide relative flex h-dvh flex-col items-center overflow-y-auto bg-[#0f0618] px-6 pb-10 pt-4 sm:pb-14 sm:pt-6">
+    <div className="scrollbar-hide relative flex h-dvh flex-col items-center overflow-y-auto bg-[#0f0618] pb-4 pt-4 sm:pb-6 sm:pt-6">
       <div aria-hidden className="fixed inset-0 overflow-hidden">
         <Image
           src="/images/questions/quiz-background.PNG"
@@ -70,7 +65,7 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_45%,_rgba(0,0,0,0.4)_100%)]" />
       </div>
 
-      <main className="relative z-10 flex w-full max-w-4xl flex-1 flex-col">
+      <main className="relative z-10 flex w-full max-w-4xl flex-1 flex-col px-6">
         <div className="mb-6 flex w-full flex-wrap items-center justify-between gap-4 sm:mb-8">
           <Link href="/" className="group flex w-fit items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] shadow-[0_0_24px_6px_rgba(247,201,72,0.35)] transition-transform group-hover:scale-105 sm:h-11 sm:w-11">
@@ -86,20 +81,6 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
         </div>
 
         <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col">
-          {question.id > 1 && (
-            <div className="mb-6 flex w-full items-center">
-              <button
-                type="button"
-                onClick={handleBack}
-                disabled={isSubmitting}
-                className="flex cursor-pointer items-center gap-1.5 rounded-full border border-white/15 bg-[#1a0a2e]/60 px-4 py-2 text-sm font-bold text-[#fdf6ec] backdrop-blur-sm transition-colors hover:border-white/25 hover:text-[#c4b5fd] disabled:cursor-not-allowed disabled:opacity-40"
-              >
-                <span aria-hidden>←</span>
-                Back
-              </button>
-            </div>
-          )}
-
           <div className="rounded-[32px] border border-white/10 bg-[#1a0a2e]/60 p-6 shadow-2xl shadow-black/40 backdrop-blur-md sm:p-10">
             <div className="mb-8">
               <div className="mb-3 flex items-center justify-between">
@@ -165,6 +146,8 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
