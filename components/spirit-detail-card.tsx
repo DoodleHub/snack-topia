@@ -189,7 +189,7 @@ export function SpiritDetailCard({
           </div>
 
           <div className="flex flex-col items-center gap-1 pl-2 sm:gap-2 sm:pl-4">
-            <PillHeader tone="tan">Not So Good With</PillHeader>
+            <PillHeader tone="tan">May Clash With</PillHeader>
             <div className="flex items-start gap-2 sm:gap-3">
               {spirit.notSoGoodWith.map((id) => (
                 <CompatAvatar key={id} id={id} />
