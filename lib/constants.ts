@@ -40,7 +40,7 @@ export const HOME_PAGE_CONTENT = {
   titleLine2: "Edition",
   subtitle:
     "A journey through a magical world, where your Snack Spirit is hidden among the glowing lanterns, waiting to meet you.",
-  badges: ["11 story choices", "16 snack spirits"],
+  badges: ["12 story choices", "16 snack spirits"],
   ctaLabel: "Start",
   footnote: "Follow your heart",
 } as const;
@@ -432,9 +432,9 @@ weights: {
 id: "c",
 text: "Help organize the lantern carriers and keep the parade moving smoothly",
 weights: {
-"matcha-strategist": 2,
-"onigiri-guardian": 1,
-"dumpling-diplomat": 0.5,
+  "egg-tart-classic": 2,
+  "onigiri-guardian": 1,
+  "dumpling-diplomat": 0.5,
 },
 },
 {
