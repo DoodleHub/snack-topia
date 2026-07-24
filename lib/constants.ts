@@ -36,28 +36,13 @@ export type QuizQuestionItem = {
 
 export const HOME_PAGE_CONTENT = {
   eyebrow: "A Journey Through Snacktopia",
-  titleLine1: "The Moonlight",
-  titleLine2: "Night Market",
+  titleLine1: "Night Market",
+  titleLine2: "Edition",
   subtitle:
     "One glowing token. Eleven curious choices. A snack spirit hidden somewhere among the lanterns, waiting to meet you.",
-  badges: ["11 story choices", "2 minutes", "1 snack spirit"],
-  ctaLabel: "Begin your journey",
-  footnote: "Follow the lantern light",
-} as const;
-
-export const QUIZ_INTRO = {
-  title: "Snacktopia: Night Market Adventure",
-  paragraphs: [
-    "Late one evening, you open your pantry in search of a snack.",
-    "Instead of finding the usual shelves, you notice a tiny glowing lantern resting between two boxes. The moment you touch it, the lantern flickers to life.",
-    "A swirling portal opens before you, glowing with warm golden light. Before you can step away, it gently pulls you forward.",
-    "You tumble through a whirlwind of sparkling crumbs, colorful wrappers, and sweet-smelling clouds before landing in the magical world of Snacktopia.",
-    "In the distance, you catch glimpses of strange and beautiful lands: sugar-covered castles, misty tea gardens, crunchy forests, frozen islands, and cozy bakery villages.",
-    "But tonight, your journey begins at the Moonlight Night Market, one of Snacktopia's most magical regions.",
-    "Waiting beneath the lantern gate is Grand Guardian Nibble, the mysterious ruler and protector of Snacktopia. Somewhere inside the market is the Snack Spirit whose personality reflects your own.",
-    "Explore the market, meet its residents, and trust your instincts. Every choice will bring you closer to your true Snack Spirit.",
-  ],
-  closing: "Choose boldly and follow the lanterns. The flavor of your spirit awaits.",
+  badges: ["11 story choices", "16 snack spirits"],
+  ctaLabel: "Start",
+  footnote: "Follow your heart",
 } as const;
 
 export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
@@ -70,7 +55,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       options: [
         {
           id: "a",
-          text: "A dazzling lane filled with unusual snacks and glowing stalls you have never seen before",
+          text: "A dazzling lane filled with unusual snacks and stalls you have never seen before",
           weights: {
             "tanghulu-adventurer": 2,
             "taiyaki-artist": 1,
@@ -79,7 +64,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "b",
-          text: "A cozy street scented with steamed buns, egg tarts, and filled pastries",
+          text: "A cozy street scented with steamed buns, egg tarts, and pastries",
           weights: {
             "hotteok-comforter": 2,
             "egg-tart-classic": 1,
@@ -97,7 +82,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "d",
-          text: "A lively street filled with spicy aromas, music, and cheering crowds",
+          text: "A lively street filled with music and cheering crowds",
           weights: {
             "boba-socialite": 2,
             "takoyaki-dynamo": 1,
@@ -108,9 +93,9 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: 2,
-      title: "Crossing the Lantern Canal",
+      title: "Crossing the Canal",
       question:
-        "Your path leads to a narrow canal glowing with floating lotus flowers. The bridge is raised for the evening parade. How do you cross?",
+        "Your path leads to a canal glowing with floating lotus flowers. The bridge is raised for the evening parade. How do you cross?",
       options: [
         {
           id: "a",
@@ -132,7 +117,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "c",
-          text: "Carefully step across the floating lotus-leaf platforms",
+          text: "Carefully use the floating lotus flowers as platforms to cross",
           weights: {
             "matcha-strategist": 2,
             "shrimp-chip-explorer": 1,
@@ -154,7 +139,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 3,
       title: "The Snack Creature's Gift",
       question:
-        "On the other side, a friendly snack creature welcomes you to its stall and offers you a gift. How do you respond?",
+        "On the other side of the canal, a friendly snack creature welcomes you to its stall and offers you a gift. How do you respond?",
       options: [
         {
           id: "a",
@@ -195,45 +180,45 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       ],
     },
     {
-      id: 4,
-      title: "Earning a Market Token",
-      question:
-        "At the next stall, the owner offers you a glowing market token, but first you must complete a small challenge. Which one do you choose?",
-      options: [
-        {
-          id: "a",
-          text: "Perform a silly dance for the waiting crowd",
-          weights: {
-            "takoyaki-dynamo": 2,
-            "boba-socialite": 1,
-            "pocky-matchmaker": 0.5,
-          },
-        },
-        {
-          id: "b",
-          text: "Solve a puzzle made from enchanted tiles",
-          weights: {
-            "sesame-ball-sage": 2,
-            "matcha-strategist": 1,
-            "egg-tart-classic": 0.5,
-          },
-        },
-        {
-          id: "c",
-          text: "Help prepare and serve snacks to other travelers",
-          weights: {
-            "hotteok-comforter": 2,
-            "onigiri-guardian": 1,
-            "dumpling-diplomat": 0.5,
-          },
-        },
-        {
-          id: "d",
-          text: "Design a colorful new sign for the stall",
-          weights: {
-            "taiyaki-artist": 2,
-            "mochi-dreamer": 1,
-            "pocky-matchmaker": 0.5,
+  id: 4,
+  title: "Earning a Market Token",
+  question:
+    "At the next stall, the owner offers you a market token in exchange for something meaningful. What do you contribute?",
+  options: [
+    {
+      id: "a",
+      text: "An entertaining story from one of your past adventures",
+      weights: {
+        "boba-socialite": 2,
+        "takoyaki-dynamo": 1,
+        "tanghulu-adventurer": 0.5,
+      },
+    },
+    {
+      id: "b",
+      text: "A thoughtful observation that could help improve the stall",
+      weights: {
+        "matcha-strategist": 2,
+        "sesame-ball-sage": 1,
+        "egg-tart-classic": 0.5,
+      },
+    },
+    {
+      id: "c",
+      text: "A promise to pass the owner’s kindness on to another traveler",
+      weights: {
+        "hotteok-comforter": 2,
+        "onigiri-guardian": 1,
+        "dumpling-diplomat": 0.5,
+      },
+    },
+    {
+      id: "d",
+      text: "A tiny handmade charm that you created at another stall",
+      weights: {
+        "taiyaki-artist": 2,
+        "mochi-dreamer": 1,
+        "mooncake-keeper": 0.5,
           },
         },
       ],
@@ -242,9 +227,9 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: 5,
-      title: "The Mischievous Candy Fox",
+      title: "The Mischievous Fox",
       question:
-        "A mischievous candy fox darts through the crowd, snatches your token, and disappears between the stalls. What do you do?",
+        "A mischievous fox darts through the crowd, snatches your token, and disappears between the stalls. What do you do?",
       options: [
         {
           id: "a",
@@ -290,7 +275,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 6,
       title: "The Moonlight Food Festival",
       question:
-        "Red lanterns sway overhead as vendors serve sizzling skewers, steamed dumplings, candied fruit, pastries, and fragrant tea. Which activity draws you in?",
+        "Red lanterns sway overhead as vendors serve sizzling skewers, steamed dumplings, pastries, and fragrant tea. Which activity draws you in?",
       options: [
         {
           id: "a",
@@ -312,7 +297,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "c",
-          text: "Listen to stories about the market's oldest recipes and legends",
+          text: "Listen to stories about the market's recipes and legends",
           weights: {
             "mooncake-keeper": 2,
             "bao-bun-mystic": 1,
@@ -332,6 +317,52 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: 7,
+      title: "The Darkened Stall",
+      question:
+        "A nearby stall suddenly goes dark. The worried owner looks around for help as customers begin to gather. What do you do first?",
+      options: [
+        {
+          id: "a",
+          text: "Inspect the stall and experiment with ways to restore the lights",
+          weights: {
+            "taiyaki-artist": 2,
+            "matcha-strategist": 1,
+            "sesame-ball-sage": 0.5,
+          },
+        },
+        {
+          id: "b",
+          text: "Reassure the owner and stay nearby for support",
+          weights: {
+            "hotteok-comforter": 2,
+            "bao-bun-mystic": 1,
+            "onigiri-guardian": 0.5,
+          },
+        },
+        {
+          id: "c",
+          text: "Continue on and let others step in to handle it",
+          weights: {
+            "shrimp-chip-explorer": 2,
+            "wasabi-pea-spark": 1,
+            "egg-tart-classic": 0.5,
+          },
+        },
+        {
+          id: "d",
+          text: "Take charge and organize the people around you",
+          weights: {
+            "onigiri-guardian": 2,
+            "dumpling-diplomat": 1,
+            "boba-socialite": 0.5,
+          },
+        },
+      ],
+      outcomeText:
+        "Soon, the lanterns glow again and the stall returns to life.",
+    },
+    {
+      id: 8,
       title: "The Market Arcade",
       question:
         "You discover an arcade where your market token can be exchanged for one experience. How do you spend it?",
@@ -373,52 +404,6 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
           },
         },
       ],
-    },
-    {
-      id: 8,
-      title: "The Darkened Stall",
-      question:
-        "A nearby stall suddenly goes dark. Its worried owner looks around for help as customers begin to gather. What do you do first?",
-      options: [
-        {
-          id: "a",
-          text: "Inspect the stall and experiment with ways to restore the lights",
-          weights: {
-            "taiyaki-artist": 2,
-            "matcha-strategist": 1,
-            "sesame-ball-sage": 0.5,
-          },
-        },
-        {
-          id: "b",
-          text: "Reassure the owner and stay nearby for support",
-          weights: {
-            "hotteok-comforter": 2,
-            "bao-bun-mystic": 1,
-            "onigiri-guardian": 0.5,
-          },
-        },
-        {
-          id: "c",
-          text: "Continue on and let others step in to handle it",
-          weights: {
-            "shrimp-chip-explorer": 2,
-            "wasabi-pea-spark": 1,
-            "egg-tart-classic": 0.5,
-          },
-        },
-        {
-          id: "d",
-          text: "Take charge and organize the people around you",
-          weights: {
-            "onigiri-guardian": 2,
-            "dumpling-diplomat": 1,
-            "boba-socialite": 0.5,
-          },
-        },
-      ],
-      outcomeText:
-        "Soon, the lanterns glow again and the stall returns to life.",
     },
     {
       id: 9,
@@ -569,7 +554,6 @@ export type SnackSpirit = {
   why: string;
   quote: string;
   emoji: string;
-  marketRole: string;
 };
 
 export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
@@ -594,7 +578,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices show responsibility, loyalty, and a willingness to step in when others need help.",
     quote: "I'll keep you safe, one grain at a time.",
     emoji: "🍙",
-    marketRole: "Watches over the Lantern Gate and guides lost travelers.",
   },
   "takoyaki-dynamo": {
     name: "Takoyaki Dynamo",
@@ -617,7 +600,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices favor excitement, fast action, playfulness, and shared experiences.",
     quote: "Why stand still when we could roll into an adventure?",
     emoji: "🐙",
-    marketRole: "Runs the liveliest stall in Festival Square.",
   },
   "taiyaki-artist": {
     name: "Taiyaki Artist",
@@ -640,7 +622,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices reveal creativity, visual curiosity, and a desire to make or preserve something meaningful.",
     quote: "Every shape holds a story.",
     emoji: "🐟",
-    marketRole: "Designs pastries, decorations, and hand-painted stall signs.",
   },
   "bao-bun-mystic": {
     name: "Bao Bun Mystic",
@@ -663,7 +644,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices favor reflection, emotional understanding, patience, and calm observation.",
     quote: "The softest answers are sometimes the truest.",
     emoji: "🥟",
-    marketRole: "Serves warm buns and quiet advice from a hidden steamer stall.",
   },
   "egg-tart-classic": {
     name: "Egg Tart Classic",
@@ -686,7 +666,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices show patience, discernment, consistency, and an appreciation for proven traditions.",
     quote: "Some things become classics for a reason.",
     emoji: "🥧",
-    marketRole: "Runs one of the Night Market's oldest bakery stalls.",
   },
   "boba-socialite": {
     name: "Boba Socialite",
@@ -709,7 +688,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices consistently lead toward crowds, collaboration, celebration, and new connections.",
     quote: "Everything is better when we share it.",
     emoji: "🧋",
-    marketRole: "Hosts gatherings at the market's busiest tea stall.",
   },
   "hotteok-comforter": {
     name: "Hotteok Comforter",
@@ -732,7 +710,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices emphasize comfort, kindness, generosity, and caring for people who need support.",
     quote: "There is always room for one more by the fire.",
     emoji: "🥞",
-    marketRole: "Serves warm treats beside the communal fire.",
   },
   "wasabi-pea-spark": {
     name: "Wasabi Pea Spark",
@@ -755,7 +732,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices show independence, bold action, risk-taking, and comfort with standing apart.",
     quote: "A little shock keeps life interesting.",
     emoji: "🫛",
-    marketRole: "Runs a daring spice stall in the market's loudest alley.",
   },
   "mochi-dreamer": {
     name: "Mochi Dreamer",
@@ -778,7 +754,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices reveal imagination, emotional sensitivity, hopefulness, and a love of magical possibilities.",
     quote: "The world is softer when you leave room to dream.",
     emoji: "🍡",
-    marketRole: "Tends the market's floating lantern garden.",
   },
   "dumpling-diplomat": {
     name: "Dumpling Diplomat",
@@ -801,7 +776,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices favor teamwork, empathy, compromise, and solutions that include everyone.",
     quote: "There is always a way to bring everyone to the table.",
     emoji: "🥟",
-    marketRole: "Helps resolve disagreements between stall owners.",
   },
   "tanghulu-adventurer": {
     name: "Tanghulu Adventurer",
@@ -824,7 +798,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices repeatedly favor novelty, exploration, courage, and the promise of another adventure.",
     quote: "The sweetest discoveries are just beyond the familiar path.",
     emoji: "🍓",
-    marketRole: "Explores the hidden alleys beyond the main market streets.",
   },
   "sesame-ball-sage": {
     name: "Sesame Ball Sage",
@@ -847,7 +820,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices favor puzzles, patience, careful observation, and understanding before action.",
     quote: "Look closely. There is always more within.",
     emoji: "🟤",
-    marketRole: "Keeps the Night Market's oldest stories and riddles.",
   },
   "pocky-matchmaker": {
     name: "Pocky Matchmaker",
@@ -870,7 +842,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices prioritize companionship, group experiences, shared memories, and helping people connect.",
     quote: "The best moments are meant to be shared.",
     emoji: "🥢",
-    marketRole: "Organizes celebrations, introductions, and group games.",
   },
   "shrimp-chip-explorer": {
     name: "Shrimp Chip Explorer",
@@ -893,7 +864,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices show flexibility, independence, curiosity, and a willingness to let events unfold naturally.",
     quote: "Let's follow the crunch and see where it leads.",
     emoji: "🦐",
-    marketRole: "Wanders between stalls, collecting stories and discovering flavors.",
   },
   "mooncake-keeper": {
     name: "Mooncake Keeper",
@@ -916,7 +886,6 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices favor memories, old stories, familiar comforts, and the relationships that create belonging.",
     quote: "What we remember becomes part of who we are.",
     emoji: "🥮",
-    marketRole: "Preserves the Night Market's traditions and festival customs.",
   },
   "matcha-strategist": {
     name: "Matcha Strategist",
@@ -939,6 +908,5 @@ export const SNACK_SPIRITS: Record<SpiritId, SnackSpirit> = {
     why: "Your choices emphasize planning, logic, independence, restraint, and purposeful problem-solving.",
     quote: "Move with purpose, and every step becomes meaningful.",
     emoji: "🍵",
-    marketRole: "Plans market events, schedules, and future improvements.",
   },
 };

@@ -194,7 +194,7 @@ export default function ResultsPage() {
             href="/spirits"
             className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#fdf6ec] backdrop-blur-sm transition-colors hover:border-white/30 hover:bg-white/5 sm:px-6 sm:py-2.5 sm:text-sm"
           >
-            See All Spirits
+            View All Spirits
           </Link>
           <a
             href="https://buymeacoffee.com/oddlymade"

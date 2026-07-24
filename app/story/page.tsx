@@ -22,12 +22,14 @@ export default function StoryPage() {
       <main className="relative z-10 flex w-full max-w-2xl flex-col items-center">
         <div className="relative mb-8 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">
           <p className="text-base leading-[1.9] text-[#d4c4e8] sm:text-lg">
-                Late one evening, you open your pantry in search of a snack and discover a tiny glowing lantern hidden between the shelves.
+                Late one evening, you open your pantry in search of a snack and discover a glowing lantern hidden between the shelves.
                   The moment you touch it, a portal opens and sweeps you into <b>Snacktopia</b>, a magical world.
                   Tonight, your journey begins at the <b>Moonlight Night Market</b>.
-            Waiting at the entrance is <b>Grand Guardian Nibble</b>, the ruler and protector of Snacktopia. He explains that somewhere in the market lives a Snack Spirit whose personality reflects your own.
-            Explore the stalls, face whimsical challenges, and follow your instincts. <b>Your Snack Spirit is waiting.</b>
                      </p>
+                     <p className="text-base leading-[1.9] text-[#d4c4e8] sm:text-lg">
+            Waiting at the entrance is <b>Grand Guardian Nibble</b>, the ruler and protector of <b>Snacktopia</b>. He explains that somewhere in the market lives a <b>Snack Spirit</b> whose personality reflects your own.
+            Explore the stalls, face challenges, and follow your instincts. <b>Your Snack Spirit is waiting.</b>
+                             </p>
         </div>
 
         <div className="flex w-full items-center justify-between">

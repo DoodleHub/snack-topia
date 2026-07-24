@@ -38,9 +38,6 @@ export default async function SpiritPage({ params }: SpiritPageProps) {
             About This Spirit
           </h2>
           <p className="text-[12px] leading-relaxed text-[#c9bcd9] sm:text-sm">{spirit.description}</p>
-          <p className="mt-2 text-[11px] italic leading-relaxed text-[#a89bc0] sm:text-[13px]">
-            {spirit.marketRole}
-          </p>
         </div>
 
         <div className="flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-3">

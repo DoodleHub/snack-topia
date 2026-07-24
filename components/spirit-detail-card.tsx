@@ -149,12 +149,6 @@ export function SpiritDetailCard({
       <div className="grid grid-cols-[auto_1fr] items-center gap-3 sm:gap-6">
         <div className="flex flex-col items-center">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#1a0a2e]/70 px-3 py-2 shadow-lg shadow-black/30 backdrop-blur-sm sm:rounded-4xl sm:px-5 sm:py-3">
-            <span
-              className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full border border-[#f7c948]/50 bg-[radial-gradient(circle,_#fde68a_0%,_#f7c948_55%,_#ff8a3d_100%)] text-[11px] shadow-[0_0_12px_2px_rgba(247,201,72,0.35)] sm:right-2 sm:top-2 sm:h-6 sm:w-6 sm:text-sm"
-              aria-hidden
-            >
-              {spirit.emoji}
-            </span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={spirit.image}
@@ -209,9 +203,9 @@ export function SpiritDetailCard({
               {spirit.shineWhen.slice(0, 3).map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-1 text-[9px] leading-snug text-[#c9bcd9] sm:gap-1.5 sm:text-[13px]"
+                  className="flex items-center gap-1 text-[9px] leading-snug text-[#c9bcd9] sm:gap-1.5 sm:text-[13px]"
                 >
-                  <Blossom className="mt-0.5 shrink-0 text-[#f9a8d4]" />
+                  <Blossom className="shrink-0 text-[#f9a8d4]" />
                   <span>{item}</span>
                 </li>
               ))}
