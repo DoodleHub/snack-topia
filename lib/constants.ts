@@ -50,11 +50,11 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 1,
       title: "Choosing Your Path",
       question:
-        "You step beneath the glowing archway and enter the Moonlight Night Market. Which path draws you in?",
+        "You enter the Moonlight Night Market. Which path draws you in?",
       options: [
         {
           id: "a",
-          text: "A dazzling lane filled with unusual snacks and stalls you have never seen before",
+          text: "A lane filled with unusual snacks and stalls you have never seen before",
           weights: {
             "tanghulu-adventurer": 2,
             "taiyaki-artist": 1,
@@ -63,7 +63,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "b",
-          text: "A cozy street scented with steamed buns, egg tarts, and pastries",
+          text: "A walkway scented with steamed buns, egg tarts, and pastries",
           weights: {
             "hotteok-comforter": 2,
             "egg-tart-classic": 1,
@@ -72,7 +72,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "c",
-          text: "A mysterious alley marked with swirling lantern symbols and a soft melody",
+          text: "An alley marked with swirling lantern symbols and a soft melody",
           weights: {
             "mochi-dreamer": 2,
             "bao-bun-mystic": 1,
@@ -81,7 +81,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "d",
-          text: "A lively street filled with music and cheering crowds",
+          text: "A street filled with music and cheering crowds",
           weights: {
             "boba-socialite": 2,
             "takoyaki-dynamo": 1,
@@ -94,7 +94,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 2,
       title: "Crossing the Canal",
       question:
-        "Your path leads to a canal glowing with floating lotus flowers. The bridge is raised for the evening parade.\n How do you cross?",
+        "Your path leads to a canal with floating lotus flowers. The bridge is raised for the evening parade. How do you cross?",
       options: [
         {
           id: "a",
@@ -138,11 +138,11 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 3,
       title: "The Snack Creature's Gift",
       question:
-        "On the other side of the canal, a friendly snack creature welcomes you to its stall and offers you a gift.\n How do you respond?",
+        "On the other side, a friendly creature welcomes you to its stall and offers a gift.\n How do you respond?",
       options: [
         {
           id: "a",
-          text: "Accept a sparkling tanghulu skewer that changes flavor with every bite",
+          text: "Accept a skewer that changes flavor with every bite",
           weights: {
             "tanghulu-adventurer": 2,
             "takoyaki-dynamo": 1,
@@ -151,7 +151,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "b",
-          text: "Choose a mystery pouch of colorful rice crackers filled with surprises",
+          text: "Choose a pouch of colorful crackers filled with surprises",
           weights: {
             "shrimp-chip-explorer": 2,
             "taiyaki-artist": 1,
@@ -160,7 +160,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
         },
         {
           id: "c",
-          text: "Take a warm honey-filled pancake to save for later in your journey",
+          text: "Take a warm honey-filled pancake to save for later",
           weights: {
             "onigiri-guardian": 2,
             "hotteok-comforter": 1,
@@ -213,7 +213,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: "d",
-      text: "Design a colorful new sign for the stall",
+      text: "Design a new sign for the stall",
       weights: {
         "taiyaki-artist": 2,
         "mochi-dreamer": 1,
@@ -228,7 +228,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 5,
       title: "The Mischievous Fox",
       question:
-        "A mischievous fox darts through the crowd, snatches your token, and disappears between the stalls.\n What do you do?",
+        "A fox darts through the crowd, snatches your token, and disappears between the stalls.\n What do you do?",
       options: [
         {
           id: "a",
@@ -274,7 +274,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
       id: 6,
       title: "The Arcade",
       question:
-        "After getting your token back, you discover an arcade where the token can be used.\n How do you spend it?",
+        "After getting your token back, you discover an arcade where it can be used.\n How do you spend it?",
       options: [
         {
           id: "a",
@@ -316,9 +316,9 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: 7,
-      title: "The Moonlight Food Festival",
+      title: "The Moonlight Night Market",
       question:
-        "Lanterns sway overhead as vendors serve sizzling skewers, steamed dumplings, pastries, and fragrant tea.\n Which activity draws you in?",
+        "Deeper in the market, sizzling snacks and fragrant tea fill the air. Which activity draws you in?",
       options: [
         {
           id: "a",
@@ -498,7 +498,7 @@ outcomeText:
       id: 11,
       title: "Grand Guardian Nibble's Gift",
       question:
-        "As the moon reaches its highest point, Grand Guardian Nibble appears and offers you one final gift.\n Which do you choose?",
+        "As the moon peaks, Grand Guardian Nibble appears and offers one final gift.\n Which do you choose?",
       options: [
         {
           id: "a",
