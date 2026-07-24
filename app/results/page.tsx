@@ -98,7 +98,7 @@ export default function ResultsPage() {
 
   async function handleShare() {
     if (!spirit) return;
-    const shareText = `My snack spirit is ${spirit.name}! ${spirit.tagline} See what your snack spirit is:`;
+    const shareText = `My snack spirit is ${spirit.name}! See what your snack spirit is:`;
     const url = APP_URL;
     const file = await captureResultImage();
 
