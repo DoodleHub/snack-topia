@@ -99,6 +99,16 @@ export function QuizQuestion({ question, totalQuestions }: QuizQuestionProps) {
               </div>
             </div>
 
+            <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/20">
+              <Image
+                src={`/images/questions/snacktopia_question_${String(question.id).padStart(2, "0")}_4x3.webp`}
+                alt=""
+                width={700}
+                height={525}
+                className="h-auto w-full max-w-full"
+              />
+            </div>
+
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[#f9a8d4] sm:text-sm">
               {question.title}
             </p>
