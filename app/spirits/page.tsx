@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { QuizBackLink } from "@/components/quiz-back-link";
 import { Footer } from "@/components/footer";
+import { Nav } from "@/components/nav";
 import { playfairDisplay } from "@/lib/fonts";
 import { SNACK_SPIRITS, SPIRIT_IDS } from "@/lib/constants";
 
@@ -11,11 +12,13 @@ export default function SpiritsPage() {
   }));
 
   return (
-    <div className="relative flex min-h-full flex-1 flex-col overflow-hidden bg-[#0f0618] pb-4 pt-8 sm:pb-6 sm:pt-12">
+    <div className="relative flex min-h-full flex-1 flex-col overflow-hidden bg-[#0f0618] pb-4 pt-4 sm:pb-6 sm:pt-6">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#f7c94812_0%,_transparent_55%),radial-gradient(ellipse_at_bottom,_#7c3aed20_0%,_transparent_55%)]"
       />
+
+      <Nav className="max-w-4xl" />
 
       <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center gap-8 px-4 sm:px-6">
         <div className="text-center">

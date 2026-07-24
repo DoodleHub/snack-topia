@@ -3,6 +3,7 @@ import { FindSpiritLink } from "@/components/find-spirit-link";
 import { QuizBackLink } from "@/components/quiz-back-link";
 import { SpiritDetailCard } from "@/components/spirit-detail-card";
 import { Footer } from "@/components/footer";
+import { Nav } from "@/components/nav";
 import { playfairDisplay } from "@/lib/fonts";
 import { SNACK_SPIRITS, SPIRIT_IDS, type SpiritId } from "@/lib/constants";
 
@@ -23,11 +24,13 @@ export default async function SpiritPage({ params }: SpiritPageProps) {
   }
 
   return (
-    <div className="relative flex min-h-full flex-1 flex-col overflow-hidden bg-[#0f0618] pb-4 pt-6 sm:pb-6 sm:pt-10">
+    <div className="relative flex min-h-full flex-1 flex-col overflow-hidden bg-[#0f0618] pb-4 pt-4 sm:pb-6 sm:pt-6">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#f7c94812_0%,_transparent_55%),radial-gradient(ellipse_at_bottom,_#7c3aed20_0%,_transparent_55%)]"
       />
+
+      <Nav className="max-w-sm sm:max-w-xl" />
 
       <main className="relative z-10 mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-3 px-4 sm:max-w-xl sm:gap-4 sm:px-6">
         <SpiritDetailCard spirit={{ ...spirit, id: id as SpiritId }} />

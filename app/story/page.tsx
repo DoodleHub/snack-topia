@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BeginQuestButton } from '@/components/begin-quest-button';
 import { Footer } from '@/components/footer';
+import { Nav } from '@/components/nav';
 
 export default function StoryPage() {
   return (
-    <div className="relative flex min-h-full flex-1 flex-col items-center pb-4 pt-6 sm:pb-6 sm:pt-16 bg-[#0f0618]">
+    <div className="relative flex min-h-full flex-1 flex-col items-center pb-4 pt-4 sm:pb-6 sm:pt-6 bg-[#0f0618]">
       <div aria-hidden className="fixed inset-0 overflow-hidden">
         <Image
           src="/images/questions/quiz-background.PNG"
@@ -19,6 +20,8 @@ export default function StoryPage() {
         {/* Portal glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#7c3aed25_0%,_transparent_70%)]" />
       </div>
+
+      <Nav className="max-w-2xl" />
 
       <main className="relative z-10 flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-6">
         <div className="relative mb-8 rounded-2xl border border-[#c084fc]/20 bg-[#1a0a2e]/80 p-8 shadow-2xl shadow-[#7c3aed]/10 backdrop-blur-sm sm:p-10">
