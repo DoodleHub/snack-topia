@@ -213,7 +213,7 @@ export const QUIZ_QUESTIONS: { questions: QuizQuestionItem[] } = {
     },
     {
       id: "d",
-      text: "A tiny handmade charm that you created at another stall",
+      text: "A tiny handmade charm meant to bring good luck to everyone who visits the stall",
       weights: {
         "taiyaki-artist": 2,
         "mochi-dreamer": 1,
